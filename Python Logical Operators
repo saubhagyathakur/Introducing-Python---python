@@ -1,0 +1,181 @@
+Logical operators are used to combine or modify conditions and return a Boolean result (True or False). They are commonly used in conditional statements to control the flow of a program based on multiple logical conditions.
+
+Let's see an example on how logical operators AND, OR, and NOT work using Boolean variables.
+
+
+
+
+
+a, b, c = True, False, True
+​
+if a and c:
+    print("Both a and c are True (AND condition).")
+​
+if b or c:
+    print("Either b or c is True (OR condition).")
+​
+if not b:
+    print("b is False (NOT condition).")
+
+Output
+Both a and c are True (AND condition).
+Either b or c is True (OR condition).
+b is False (NOT condition).
+Explanation:
+
+a and c returns True because both values are True.
+b or c returns True because at least one value is True.
+not b reverses False to True, so the condition executes.
+The following table summarizes the logical operators, their purpose, syntax and examples:
+
+Operator	Description	Syntax	Example
+and	Returns True if both the operands are true	x and y	x>7 and x>10
+or	Returns True if either of the operands is true	x or y	x<7 or x>15
+not	Returns True if the operand is false	not x	not(x>7 and x> 10)
+Truth Table for Logical Operators
+A truth table shows how logical operators behave for all possible combinations of Boolean values (True and False). It helps in clearly understanding the output of AND, OR, and NOT operations.
+
+3815823
+Truth Table for Python Logical Operators
+AND Operator
+Boolean AND operator returns True if both the operands are True else it returns False.
+
+x_and_y
+Flowchart of AND Operator
+Example 1: Below example shows how the logical AND (and) operator works by checking if all conditions are true before executing a statement.
+
+
+
+
+
+a = 10
+b = 10
+c = -10
+​
+if a > 0 and b > 0:
+    print("Numbers are greater than 0")
+if a > 0 and b > 0 and c > 0:
+    print("Numbers are greater than 0")
+else:
+    print("Atleast one number is not greater than 0")
+
+Output
+Numbers are greater than 0
+Atleast one number is not greater than 0
+Example 2: The code checks if all variables a, b and c evaluate to True, printing a message accordingly.
+
+
+
+
+
+a = 10
+b = 12
+c = 0
+​
+if a and b and c:
+    print("All the numbers have boolean value as True")
+else:
+    print("Atleast one number has boolean value as False")
+
+Output
+Atleast one number has boolean value as False
+Note: If the first expression is evaluated to be false while using the AND operator, then the further expressions are not evaluated. 
+
+OR Operator
+Boolean OR operator returns True if either of the operands is True.
+
+x_or_y
+Flowchart of OR Operator
+Example 1: Below example demonstrates the logical OR (or) operator, where the condition becomes true if at least one of the given expressions evaluates to True.
+
+
+
+
+
+a = 10
+b = -10
+c = 0
+​
+if a > 0 or b > 0:
+    print("Either of the number is greater than 0")
+else:
+    print("No number is greater than 0")
+    
+if b > 0 or c > 0:
+    print("Either of the number is greater than 0")
+else:
+    print("No number is greater than 0")
+
+Output
+Either of the number is greater than 0
+No number is greater than 0
+Example 2: The code checks if any of the variables a, b, or c has a boolean value as True; if so, it prints "At least one number has boolean value as True".
+
+
+
+
+
+a = 10
+b = 12
+c = 0
+​
+if a or b or c:
+    print("Atleast one number has boolean value as True")
+else:
+    print("All the numbers have boolean value as False")
+
+Output
+Atleast one number has boolean value as True
+Note: If the first expression is evaluated to be True while using or operator, then the further expressions are not evaluated.
+
+NOT Operator
+Boolean NOT operator works with a single boolean value. If the boolean value is True it returns False and vice-versa.
+
+not_x
+Flowchart of NOT Operator
+Example: Below code checks if a is divisible by either 3 or 5, otherwise, it prints a message indicating that it is not.
+
+
+
+
+
+a = 10
+​
+if not a:
+    print("Boolean value of a is True")
+if not (a % 3 == 0 or a % 5 == 0):
+    print("10 is not divisible by either 3 or 5")
+else:
+    print("10 is divisible by either 3 or 5")
+
+Output
+10 is divisible by either 3 or 5
+Order of Precedence of Logical Operators
+When multiple logical operators are used in a single expression, Python follows operator precedence to determine the order in which operators are evaluated.
+
+The and operator has higher precedence than or, so and is evaluated first unless parentheses specify a different order.
+Within expressions of the same precedence, Python evaluates conditions from left to right and applies short-circuit evaluation.
+
+
+
+
+def check(x):
+    print("Method called for value:", x)
+    return x > 0
+​
+a = check
+b = check
+c = check
+​
+if a(-1) or b(5) or c(10):
+    print("At least one of the numbers is positive")
+
+Output
+Method called for value: -1
+Method called for value: 5
+Atleast one of the number is positive
+Explanation:
+
+a(-1) returns False, so Python checks the next condition.
+b(5) returns True, so Python stops evaluating further conditions.
+c(10) is never executed due to short-circuit behavior of or.
