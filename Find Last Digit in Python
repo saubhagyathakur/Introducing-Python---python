@@ -1,0 +1,52 @@
+We need to write a Python program that takes a number input from the user and outputs the last digit of that number.
+
+For Example:
+
+If the user enters 234, the last digit is 4.
+If the user enters a single-digit number, the output should be the same number.
+If the user enters 0, the output should be 0.
+Basic Solution for Non-Negative Numbers
+For non-negative numbers, the task is straightforward. We can use the modulo operator (%) to find the last digit. The modulo operation gives the remainder of a division. For example, 234 % 10 gives 4 because when 234 is divided by 10, the remainder is 4.
+
+Example:
+234 % 10 = 4
+78 % 10 = 8
+7 % 10 = 7
+0 % 10 = 0
+Python Program for Non-Negative Numbers
+
+
+
+
+x = 234
+l1 = x % 10
+print("The last digit is:", l1)
+
+Output
+The last digit is: 4
+Handling Negative Numbers
+Negative numbers require a bit more attention. Using the modulo operator directly on a negative number will not yield the last digit in a straightforward way because the result will have the same sign as the denominator.
+
+Example: In Python -234 % 10 gives 6 because the modulo result takes the sign of the divisor.
+
+To handle negative numbers correctly, we can use the absolute function (abs()), which returns the absolute value of a number. This way, we convert the number to its positive counterpart before applying the modulo operation.
+
+Python Program for Both Positive and Negative Numbers
+Here's an improved Python program that works for both positive and negative numbers:
+
+
+
+
+
+x = -234
+l1 = abs(x) % 10
+​
+print("The last digit is:", l1)
+
+Output
+The last digit is: 4
+Understanding the Modulo Operation with Negative Numbers
+It’s important to understand how the modulo operation behaves when dealing with negative numbers. In Python, the result of a % b will have the same sign as the denominator b. Here’s a breakdown:
+
+-234 % 10 = 6 -> This is because -234 = -24 * 10 + 6, so the remainder is 6 (positive).
+234 % -10 = -6 -> This is because 234 = -23 * (-10) + (-6), so the remainder is -6 (negative).
