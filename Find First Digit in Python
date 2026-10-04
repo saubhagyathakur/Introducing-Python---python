@@ -1,0 +1,78 @@
+In this article, we'll discuss how to find the first digit of a given positive number in Python. We will explore two methods: iterative division and logarithmic calculation.
+
+Iterative Division
+The first method involves iteratively removing the last digit of the number until only one digit remains. This can be achieved by using floor division (//).
+
+Example: Let's say we have the number 7549. Our goal is to find the first digit, which is 7.
+
+Steps:
+Start with the number 7549.
+Divide the number by 10 using floor division to remove the last digit.
+Repeat step 2 until the number becomes a single digit.
+Here's the Python function to implement this method:
+
+
+
+
+
+def get_first_digit(x):
+    while x >= 10:
+        x = x // 10
+    return x
+​
+number = 7549
+f1 = get_first_digit(number)
+print("The first digit is:", f1)
+
+Output
+The first digit is: 7
+Using Logarithms
+The second method uses logarithms to determine the position of the first digit. By finding the logarithm base 10 of the number, we can calculate the number of digits minus one. We then use this information to isolate the first digit.
+
+Example: Let's consider the same number 7549.
+
+Steps:
+Compute the logarithm base 10 of the number.
+Take the integer part of the logarithm to find the power of 10 just below the number.
+Divide the number by 10 raised to this power to isolate the first digit.
+Here's the Python function to implement this method:
+
+
+
+
+
+import math
+​
+def get_first_digit_log(x):
+    if x <= 0:
+        return "Input must be a positive number"
+    if x < 10:
+        return x  
+    d = int(math.log10(x))
+    return x // 10**d
+​
+num = 7549
+res = get_first_digit_log(num)
+print("The first digit is:", res)
+​
+single_digit = 5
+print("The first digit is:", get_first_digit_log(single_digit))
+​
+zero_input = 0
+print("The first digit is:", get_first_digit_log(zero_input))
+
+Output
+The first digit is: 7
+The first digit is: 5
+The first digit is: Input must be a positive number
+Comparison of Methods
+Both methods are effective in finding the first digit of a positive number. The iterative division method is straightforward and easy to understand. The logarithmic method, while slightly more complex, can be more efficient for very large numbers as it reduces the number of iterations.
+
+Iterative Division:
+
+7549 -> 754 -> 75 -> 7
+
+Logarithmic Calculation:
+
+log10(7549) = 3.87 -> int(3.87) = 3 -> 7549 // 10^3 = 7
+
