@@ -1,0 +1,20 @@
+Programming languages are used to communicate instructions to a computer in a form that humans can easily understand and write. These instructions are processed by the Central Processing Unit (CPU) and bridge the gap between human logic and machine-level operations, forming the foundation of all computational tasks.
+
+human_computer_communication.webphuman_computer_communication.webp
+Writing Programs for the CPU
+The CPU understands instructions only in binary form, made up of 0s and 1s.
+
+Writing programs directly in binary is very difficult for humans.
+High-level programming languages are easier to read and write.
+These languages are converted into binary so the CPU can execute them.
+Programming Languages
+Programming languages like C, C++, Java, Python, etc, allow humans to give instructions to the CPU in a readable and structured way.
+
+Each programming language follows strict syntax rules.
+Even small syntax errors can stop a program from running.
+Programs must follow the correct structure to execute properly.
+Compilers and Interpreters
+High-level programming code must be converted into machine-readable binary instructions before execution. This conversion is handled by tools known as compilers and interpreters.
+
+Compiler: A compiler takes the entire code that you've written and converts it into machine language all at once, creating an executable file that the computer can run.
+Interpreter: An interpreter converts and executes the code one line at a time, rather than processing the entire program at once.
