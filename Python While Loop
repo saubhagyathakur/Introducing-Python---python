@@ -1,0 +1,134 @@
+While Loop is used to execute a block of statements repeatedly until a given condition is satisfied. When the condition becomes false, the line immediately after the loop in the program is executed.
+
+Here, the condition for while will be True as long as the counter variable (count) is less than 3. 
+
+
+
+
+
+count = 0
+while count < 3:
+    count = count + 1
+    print("Hello Geek")
+
+Output
+Hello Geek
+Hello Geek
+Hello Geek
+Syntax
+while expression:
+    statement(s)
+
+Parameters:
+
+condition a boolean expression. If it evaluates to True, code inside the loop will execute.
+statement(s) that will be executed during each iteration of the loop.
+Flowchart of While Loop
+whileloop
+While Loop
+Infinite while Loop
+An infinite loop is a loop that keeps running continuously because its condition always remains True. Such loops do not stop on their own and continue executing until the program is manually terminated.
+
+
+age = 28
+while age > 19:
+    print('Infinite Loop')
+Explanation: Here, the condition age > 19 is always True because the value of age never changes inside the loop. Therefore, the loop runs infinitely.
+
+Using with continue statement
+Continue statement is used to skip the current iteration of the loop and move directly to the next iteration.
+
+
+
+
+
+i = 0
+a = 'geeksforgeeks'
+​
+while i < len(a):
+    if a[i] == 'e' or a[i] == 's':
+        i += 1
+        continue
+    print(a[i])
+    i += 1
+
+Output
+g
+k
+f
+o
+r
+g
+k
+Explanation: Here, whenever the character is 'e' or 's', the loop skips printing it and continues with the next character.
+
+Using with break statement
+Break statement is used to immediately terminate the loop when a specific condition becomes True.
+
+
+
+
+
+i = 0
+a = 'geeksforgeeks'
+​
+while i < len(a):
+    if a[i] == 'e' or a[i] == 's':
+        i += 1
+        break
+    print(a[i])
+    i += 1
+
+Output
+g
+Explanation: Here, the loop stops as soon as it encounters the character 'e' or 's'.
+
+Using with pass statement
+pass statement is a null statement. It does nothing when executed and is mainly used as a placeholder for future code.
+
+
+
+
+
+a = 'geeksforgeeks'
+i = 0
+while i < len(a):
+    i += 1
+    pass
+  
+print('Value of i :', i)
+
+Output
+Value of i : 13
+Explanation: Here, the loop runs through all characters of the string, but the pass statement performs no action inside the loop body.
+
+Using with else
+else block in a while loop executes only when the loop finishes normally without encountering a break statement. In first example, loop completes all iterations, so the else block executes. In second example, loop stops because of break, so the else block is skipped.
+
+
+
+
+
+i = 0
+while i < 4:
+    i += 1
+    print(i)
+else:
+    print("No Break\n")
+​
+i = 0
+while i < 4:
+    i += 1
+    print(i)
+    break
+else:
+    print("No Break")
+
+Output
+1
+2
+3
+4
+No Break
+
+1
