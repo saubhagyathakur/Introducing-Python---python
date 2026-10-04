@@ -1,0 +1,110 @@
+Finding the largest of three numbers is a common problem that can be solved easily with a few lines of code in Python. This article will guide you through writing a Python program to achieve this, and we'll look at different methods to optimize the solution.
+
+Problem Statement
+We need to write a Python program that takes three numbers from the user and prints the largest of the three. For example:
+
+If the user provides the numbers a = 10, b = 15, and c = 5, the output should be 15.
+If the user provides a = 23, b = -1, and c = 28, the output should be 28.
+If all numbers are the same, like 5, the output should be 5.
+Basic Python Program
+Let's start with a basic Python program that compares the three numbers and prints the largest.
+
+Basic Approach
+
+
+
+
+# Input from the user
+a = 10
+b = 10
+c = 15
+​
+# Compare and print the largest number
+if a >= b and a >= c:
+    print(a)
+elif b >= a and b >= c:
+    print(b)
+else:
+    print(c)
+
+Output
+15
+Explanation
+1. Input from the user:
+
+The numbers are stored in variables a, b, and c.
+2. Comparison Logic:
+
+The program checks if a is greater than or equal to both b and c.
+
+If true, it prints a as the largest number.
+
+If the above condition is false, it checks if b is greater than or equal to both a and c.
+
+If true, it prints b as the largest number.
+
+If both conditions are false, it prints c as the largest number.
+
+Optimized Approach
+The basic approach involves up to 4 comparisons in the worst case when a == b and c is largest. We can optimize this to reduce the number of comparisons.
+
+Optimized Program
+
+
+
+
+# Input from the user
+a = 10
+b = 10
+c = 15
+​
+# Optimized comparison to find the largest number
+if a >= b:
+    if a >= c:
+        print(a)
+    else:
+        print(c)
+else:
+    if b >= c:
+        print(b)
+    else:
+        print(c)
+
+Output
+15
+Explanation
+First Comparison:
+
+The program first checks if a is greater than or equal to b.
+
+If true, it then checks if a is also greater than or equal to c.
+If both conditions are true, a is the largest and is printed.
+If a is not greater than or equal to c, then c is the largest and is printed.
+If the first condition is false, it means b is greater than a. The program then checks if b is greater than or equal to c.
+If true, b is the largest and is printed.
+If false, c is the largest and is printed.
+This method reduces the number of comparisons, making the program more efficient, especially with larger datasets.
+
+Using Python's Built-in Function
+Python provides a built-in function max() that can be used to find the maximum of any number of numbers.
+
+Using max() Function
+
+
+
+
+# Input from the user
+a = 10
+b = 10
+c = 15
+​
+# Find and print the largest number using max function
+print(max(a, b, c))
+
+Output
+15
+Explanation
+The max() function takes any number of arguments and returns the largest.
+
+This method is simple and leverages Python's built-in capabilities for maximum efficiency.
+
