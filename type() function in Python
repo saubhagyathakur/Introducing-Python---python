@@ -1,0 +1,140 @@
+The type() function returns the type of an object at runtime. It is commonly used to identify the data type of variables and objects during program execution. The same function can also be used with three arguments to dynamically create classes.
+
+Example:
+
+
+
+
+
+x = 10
+print(type(x))
+
+Output
+<class 'int'>
+Syntax
+1. type(object)
+
+OR
+
+2. type(name, bases, dict)
+
+Parameters
+Parameter	Description
+object	The object whose type is to be determined.
+name	Name of the class to create.
+bases	Tuple containing the base classes.
+dict	Dictionary containing the class attributes and methods.
+Examples
+Example 1: Checks the data types of different Python values to show how type() identifies built-in data types.
+
+
+
+
+
+a = 5
+b = "Hi"
+c = [1, 2]
+​
+print(type(a))
+print(type(b))
+print(type(c))
+
+Output
+<class 'int'>
+<class 'str'>
+<class 'list'>
+Explanation:
+
+"a" is assigned the value 5, which is an integer.
+"b" is assigned the value "Hi", which is a string.
+"c" is assigned a list containing two elements, so its type is a list.
+Example 2: Compare the Types of Two Variables
+
+
+
+
+
+x = 10
+y = 5.5
+​
+print(type(x) is type(y))
+
+Output
+False
+Explanation:
+
+type(x) returns int.
+type(y) returns float.
+Since the types are different, the comparison returns False.
+Example 3: Use type() in a Condition as Instead of comparing list and tuple directly, make it practical.
+
+
+
+
+
+value = [1, 2, 3]
+if type(value) == list:
+    print("The object is a list.")
+
+Output
+The object is a list.
+Explanation:
+
+type(value) returns list.
+The condition checks whether the object is a list.
+Since the condition is True, the message is printed.
+Creating Classes Dynamically
+The three-argument form of type() can be used to create classes programmatically. This is useful in advanced scenarios such as frameworks, metaprogramming, and dynamic object creation.
+
+Example: Create a Class Dynamically
+
+
+
+
+
+A = type("A", (), {"x": 100})
+obj = A()
+print(type(obj))
+print(obj.x)
+
+Output
+<class '__main__.A'>
+100
+Explanation:
+
+"A" specifies the class name.
+() indicates that the class has no custom base classes.
+{"x": 100} creates a class attribute x.
+obj = A() creates an instance of the dynamically generated class.
+Example: Create a Class with a Method
+
+
+
+
+
+B = type(
+    "B",
+    (),
+    {
+        "n": 5,
+        "show": lambda self: self.n
+    }
+)
+obj = B()
+print(type(obj))
+print(obj.show())
+
+Output
+<class '__main__.B'>
+5
+Explanation:
+
+type() creates a class named B.
+n is a class attribute.
+show() returns the value of n.
+The instance obj can access both the attribute and the method.
+Important Points
+type() returns the exact type of an object.
+It accepts either one or three arguments.
+The three-argument form is mainly used in advanced Python programming.
+For checking whether an object belongs to a class or its subclasses, isinstance() is generally preferred.
