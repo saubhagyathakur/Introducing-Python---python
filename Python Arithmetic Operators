@@ -1,0 +1,157 @@
+Arithmetic operators are used to perform mathematical calculations on numbers. These operators help in tasks like addition, subtraction, multiplication, division and other basic mathematical operations.
+
+Operator	Description	Syntax
++	Addition: Adds two values	x + y
+–	Subtraction: Subtracts one value from another	x – y
+*	Multiplication: Multiplies two values	x * y
+/	Division (float): Divides and returns a float value	x / y
+//	Division (floor): Divides and returns the floor value	x // y
+%	Modulus: Returns the remainder after division	x % y
+**	Power: Raises a number to the power of another	x ** y
+Addition Operator
+The + operator is used to combine two values by adding them together. It returns the sum of both operands and is commonly used in mathematical calculations.
+
+
+
+
+
+a = 2
+b = 3
+res = a + b
+print(res)
+
+Output
+5
+Explanation: a + b adds both numbers and returns 5.
+
+Subtraction Operator
+The - operator is used to subtract one value from another. It returns the difference between the two operands.
+
+
+
+
+
+a = 2
+b = 3
+res = a - b
+print(res)
+
+Output
+-1
+Explanation: a - b subtracts 3 from 2, resulting in -1.
+
+Multiplication Operator
+The * operator is used to multiply two values together. It returns the product of the operands.
+
+
+
+
+
+a = 2
+b = 3
+res = a * b
+print(res)
+
+Output
+6
+Explanation: a * b multiplies both numbers and returns 6.
+
+Division Operator 
+Division operators are used to divide one number by another. Python provides two types of division operators: Float Division (/) and Floor Division (//).
+
+1. Float Division (/): / operator divides two numbers and always returns the result as a floating-point number.
+
+
+
+
+
+print(5 / 5)
+print(10 / 2)
+print(-10 / 2)
+print(20.0 / 2)
+
+Output
+1.0
+5.0
+-5.0
+10.0
+Explanation:
+
+Float division always returns the quotient in decimal form.
+Even when both numbers are integers, the result is returned as a float.
+2. Floor Division (//): // operator divides two numbers and returns the floor value of the quotient.
+
+
+
+
+
+print(10 // 3)
+print(-5 // 2)
+print(5.0 // 2)
+print(-5.0 // 2)
+
+Output
+3
+-3
+2.0
+-3.0
+Explanation:
+
+Floor division removes the decimal part of the quotient.
+For negative numbers, the result is rounded down to the nearest smaller integer.
+Modulus Operator
+The % operator is used to find the remainder left after dividing one number by another. It is commonly used in programs that check divisibility, even or odd numbers and cyclic operations.
+
+
+
+
+
+a = 3
+b = 2
+res = a % b
+print(res)
+
+Output
+1
+Explanation: 3 % 2 divides 3 by 2 and the remainder left after division is 1.
+
+Exponentiation Operator
+The ** operator is used to raise a number to the power of another number. It performs repeated multiplication of the first number based on the second number.
+
+
+
+
+
+a = 2
+b = 3
+res = a ** b
+print(res)
+
+Output
+8
+Explanation: 2 ** 3 means 2 × 2 × 2 and the result of the exponentiation is 8.
+
+Precedence of Arithmetic Operators
+The table below shows the precedence and associativity of arithmetic operators in Python.
+
+Operator
+
+Description
+
+Associativity
+
+**
+
+Exponentiation	
+Right to Left
+
+%, *, /, //
+
+Modulus, Multiplication, Division and Floor Division	
+Left to Right
+
++, -
+
+Addition and Subtraction	
+Left to Right
+
