@@ -1,0 +1,43 @@
+Keyword arguments in Python allow you to specify arguments by their parameter names, regardless of their order. This enhances code readability and flexibility.
+
+There are two types of arguments in Python:
+
+Positional arguments: Arguments that need to be in the same order as the parameters in the function definition.
+Keyword arguments: Arguments that can be provided in any order by explicitly specifying the parameter name.
+Consider the following example with keyword arguments:
+
+
+
+
+
+def printItem(id, name, price):
+    print("Id is", id)
+    print("Name is", name)
+    print("Price is", price)
+​
+printItem(id=101, name="abc", price=100)
+print()
+printItem(name="xyz", price=200, id=102)
+print()
+printItem(price=150, id=103, name="pqr")
+
+Output
+Id is 101
+Name is abc
+Price is 100
+
+Id is 102
+Name is xyz
+Price is 200
+
+Id is 103
+Name is pqr
+Price is 150
+Explanation:
+Arguments are passed by parameter names, so the order does not matter.
+This makes the function calls more readable and flexible, especially for functions with many parameters.
+Advantages of Using Keyword Arguments
+You do not need to remember the order of parameters.
+The code is more readable, explicitly stating which value corresponds to which parameter.
+Allows skipping optional parameters easily without affecting other arguments.
+Makes functions more flexible and reduces chances of errors when many parameters exist.
