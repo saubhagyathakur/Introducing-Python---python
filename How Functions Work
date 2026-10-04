@@ -1,0 +1,83 @@
+Functions in Python are a fundamental part of the programming language, providing a way to organize code into reusable blocks. In this article, we will explore how functions work in Python, using a step-by-step explanation based on a simple Python program.
+
+Function Execution Flow
+Consider the following Python program:
+
+
+
+
+
+def fun1():
+    print("Before fun2")
+    fun2()
+    print("After fun2")
+​
+​
+def fun2():
+    print("Inside fun2")
+​
+​
+print("Before fun1")
+fun1()
+print("After fun1")
+Output Explanation
+The output of this program is:
+
+Before fun1
+Before fun2
+Inside fun2
+After fun2
+After fun1
+
+Execution Steps
+Main Code Execution Begins: The program starts executing from the first line of the main code, which prints Before fun1.
+Function Call to fun1: When fun1 is called, the main code pauses, and control transfers to fun1.
+Execution of fun1: Inside fun1, the first line prints Before fun2. Then, fun1 calls fun2.
+Function Call to fun2: Control transfers to fun2, pausing the execution of fun1.
+Execution of fun2: The only line inside fun2 prints Inside fun2. After executing this line, fun2 finishes, and control returns to fun1.
+Resuming fun1: Back in fun1, the next line prints. After fun2, fun1 finishes, and control returns to the main code.
+Main Code Resumes: The main code prints After fun1.
+Function Call Stack
+Internally, Python uses a function call stack to manage function calls. A stack is a data structure that follows the Last In, First Out (LIFO) principle. Here's how it works with the example program:
+
+Initial State: The main code begins execution.
+Calling fun1: The state of the main code is pushed onto the stack, and fun1 begins execution.
+Calling fun2: The state of fun1 is pushed onto the stack, and fun2 begins execution.
+Returning from fun2: The state of fun2 is popped from the stack, and control returns to fun1.
+Returning from fun1: The state of fun1 is popped from the stack, and control returns to the main code.
+This stacking mechanism ensures that functions return control to the correct place after they finish execution.
+
+Diagram of the Function Call Stack
+mm
+Local Variables and Scope
+Consider this modified example:
+
+
+
+
+
+def fun():
+    x = 5
+    y = 10
+    x = y
+    print(x, y)
+​
+​
+fun()
+fun()
+Output Explanation
+The output of this program is:
+
+10 10
+10 10
+
+Execution Steps
+1. First Call to fun:
+'x' is assigned the value 5.
+'y' is assigned the value 10.
+'x' is then assigned the value of 'y', which is 10.
+The function prints 10 10.
+fun finishes, and its local variables are destroyed.
+2. Second Call to fun:
+A new set of local variables 'x' and 'y' is created.
+The same steps are repeated, resulting in 10 10 being printed again.
