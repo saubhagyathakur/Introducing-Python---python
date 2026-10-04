@@ -1,0 +1,205 @@
+Python bitwise operators are used to perform bitwise calculations on integers. The integers are first converted into binary and then operations are performed on each bit or corresponding pair of bits and the result is then returned in decimal format.
+
+Bitwise AND Operator
+Bitwise AND (&) operator takes two equal-length bit patterns as parameters. The two-bit integers are compared. If the bits in the compared positions of the bit patterns are 1, then the resulting bit is 1. If not, it is 0.
+
+Example: Take two-bit values X and Y, where X = 7= (111)2 and Y = 4 = (100)2 Take Bitwise and of both X & Y
+
+Note: Here, (111)2 represent binary number.
+
+1
+Bitwise AND Operator
+
+
+
+
+a = 10
+b = 4
+print("a & b =", a & b)
+
+Output
+a & b = 0
+Bitwise OR Operator
+Bitwise OR (|) Operator takes two equivalent length bit designs as boundaries, if the two bits in the looked-at position are 0, the next bit is zero. If not, it is 1.
+
+Example: Take two-bit values X and Y, where X = 7= (111)2 and Y = 4 = (100)2 Take Bitwise OR of both X, Y
+
+2
+Bitwise OR Operator
+
+
+
+
+a = 10
+b = 4
+print("a | b =", a | b)
+
+Output
+a | b = 14
+Bitwise XOR Operator
+Bitwise XOR (^) Operator also known as the exclusive OR operator, is used to perform the XOR operation on two operands, i.e., it compares corresponding bits of two operands and returns true if and only if exactly one of the operands is true.
+
+Example: Take two-bit values X and Y, where X = 7= (111)2 and Y = 4 = (100)2 Take Bitwise and of both X & Y
+
+3
+Bitwise XOR Operator
+
+
+
+
+a = 10
+b = 4
+print("a ^ b =", a ^ b)
+
+Output
+a ^ b = 14
+Bitwise NOT Operator
+Bitwise Not (~) is a unary operator that returns one's complement of the operand. This means it inverts all bits in the value, transforming 0 bits to 1 and 1 bits to 0.
+
+Example: Take one-bit value X, where X = 10= (1010)2 Take Bitwise NOT of X.
+
+4
+Bitwise NOT Operator
+
+
+
+
+a = 10
+​
+print("~a =", ~a)
+
+Output
+~a = -11
+Bitwise Shift
+These operators are used to shift the bits of a number left or right thereby multiplying or dividing the number by two respectively. They can be used when we have to multiply or divide a number by two. 
+
+1. Bitwise Right Shift
+Shifts the bits of the number to the right and fills the vacated bit positions on the left with 0s (or with 1s for negative numbers). As a result, similar effect as of dividing the number with some power of two.
+
+Example 1: Right shifting a positive integer
+
+a = 10 = 0000 1010 (Binary)
+a >> 1 = 0000 0101 = 5
+
+Example 2: Right shifting a positive integer
+
+a = -10 = 1111 0110 (Binary)
+a >> 1 = 1111 1011 = -5 
+
+
+
+
+
+a = 10
+b = -10
+​
+print("a >> 1 =", a >> 1)
+print("b >> 1 =", b >> 1)
+
+Output
+a >> 1 = 5
+b >> 1 = -5
+2. Bitwise Left Shift
+Shifts the bits of the number to the left and fills 0 on voids right as a result. Similar effect as of multiplying the number with some power of two.
+
+Example 1: Left shifting a positive integer
+
+a = 5 = 0000 0101 (Binary)
+a << 1 = 0000 1010 = 10
+
+Example 2: Left shifting a negative integer
+
+b = -10 = 1111 0110 (Binary)
+b << 1 = 1110 1100 = -20
+
+
+
+
+
+a = 5
+b = -10
+print("a << 1 =", a << 1)
+print("b << 1 =", b << 1)
+
+Output
+a << 1 = 10
+b << 1 = -20
+Bitwise Operator Overloading
+Operator Overloading means giving extended meaning beyond their predefined operational meaning. For example, operator + is used to add two integers, concatenate two strings, and concatenate two lists. It is achievable because the '+' operator is overloaded by int class and str class.
+
+
+
+
+
+class Geek():
+    def __init__(self, value):
+        self.value = value
+​
+    def __and__(self, obj):
+        print("And operator overloaded")
+        if isinstance(obj, Geek):
+            return self.value & obj.value
+        else:
+            raise ValueError("Must be a object of class Geek")
+​
+    def __or__(self, obj):
+        print("Or operator overloaded")
+        if isinstance(obj, Geek):
+            return self.value | obj.value
+        else:
+            raise ValueError("Must be a object of class Geek")
+​
+    def __xor__(self, obj):
+        print("Xor operator overloaded")
+        if isinstance(obj, Geek):
+            return self.value ^ obj.value
+        else:
+            raise ValueError("Must be a object of class Geek")
+​
+    def __lshift__(self, obj):
+        print("lshift operator overloaded")
+        if isinstance(obj, Geek):
+            return self.value << obj.value
+        else:
+            raise ValueError("Must be a object of class Geek")
+​
+    def __rshift__(self, obj):
+        print("rshift operator overloaded")
+        if isinstance(obj, Geek):
+            return self.value >> obj.value
+        else:
+            raise ValueError("Must be a object of class Geek")
+​
+    def __invert__(self):
+        print("Invert operator overloaded")
+        return ~self.value
+​
+if __name__ == "__main__":
+    a = Geek(10)
+    b = Geek(12)
+    print(a & b)
+    print(a | b)
+    print(a ^ b)
+    print(a << b)
+    print(a >> b)
+    print(~a)
+
+Output
+And operator overloaded
+8
+Or operator overloaded
+14
+Xor operator overloaded
+6
+lshift operator overloaded
+40960
+rshift operator overloaded
+0
+Invert operator overloaded
+-11
+Explanation:
+
+The Geek class stores an integer value in the value attribute.
+Special methods such as __and__(), __or__(), __xor__(), __lshift__(), __rshift__(), and __invert__() are defined to overload the corresponding bitwise operators.
+Each method performs the required bitwise operation on the value attributes of Geek objects.
+The methods check whether the operand is a Geek object and raise a ValueError if it is not.
