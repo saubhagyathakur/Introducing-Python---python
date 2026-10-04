@@ -1,0 +1,143 @@
+Type conversion in Python is the process of changing a value from one data type to another.
+
+Helps ensure correct operations and calculations.
+Examples include converting an integer to a float or a numeric string to an integer.
+Python supports two types of type conversion: Implicit Conversion and Explicit Conversion.
+Implicit Type Conversion
+Implicit conversion in Python happens automatically when different data types are used together in an expression.
+
+Python converts a smaller data type to a larger one when needed.
+Commonly occurs when integers and floats are combined.
+Conversion happens at runtime to keep results accurate.
+
+
+
+
+x = 10          # Integer
+y = 10.6        # Float
+z = x + y     
+​
+print("x:", type(x))
+print("y:", type(y))
+print("z =", z)
+print("z :", type(z))
+
+Output
+x: <class 'int'>
+y: <class 'float'>
+z = 20.6
+z : <class 'float'>
+In the above example:
+
+"x" is an integer and "y" is a float.
+During "z = x + y", Python implicitly converts x to a float to avoid data loss.
+As a result, "z" becomes a float with the value 20.6.
+Explicit Type Conversion
+Explicit conversion, also called type casting, is when a programmer manually changes a value from one data type to another.
+
+Done using Python’s built-in functions like int(), float(), and str().
+Gives full control over how data is interpreted or processed.
+Used when automatic conversion is not suitable.
+Common type casting functions
+int() converts a value to an integer
+float() converts a value to a floating point number
+str() converts a value to a string
+bool() converts a value to a Boolean (True/False)
+
+
+
+
+s = "100"  # String
+a = int(s)             
+print(a)
+print(type(a))
+
+Output
+100
+<class 'int'>
+In the above example:
+
+s is a string with the value "100".
+Using int(s), the string is explicitly converted into an integer.
+This manual conversion is called explicit type conversion, and a becomes the integer 100 with type <class 'int'>.
+Examples of Common Type Conversion Functions
+Example 1: Converting a binary string
+
+
+
+
+
+s = "10010"
+a = int(s, 2)
+print(a)
+​
+b= float(s)
+print(b)
+
+Output
+18
+10010.0
+In the above example:
+
+int(s, 2) interprets the binary string '10010' as the integer 18.
+float(s) converts the string to a floating-point number.
+Example 2: ASCII, Hexadecimal and Octal Conversion
+
+
+
+
+
+c = '4'
+print("ASCII of '4':", ord(c))
+print("56 in Hex:", hex(56))
+print("56 in Octal:", oct(56))
+
+Output
+ASCII of '4': 52
+56 in Hex: 0x38
+56 in Octal: 0o70
+In the above example:
+
+ord(c) returns the ASCII code of the character '4'.
+hex() and oct() convert the integer 56 to its hexadecimal and octal representations, respectively.
+Example 3: String to Tuple, Set and List
+
+
+
+
+
+s = 'geeks'
+print("To tuple:", tuple(s))
+print("To set:", set(s))
+print("To list:", list(s))
+
+Output
+To tuple: ('g', 'e', 'e', 'k', 's')
+To set: {'e', 'g', 'k', 's'}
+To list: ['g', 'e', 'e', 'k', 's']
+In the above example:
+
+tuple(s) keeps all characters including duplicates in order.
+set(s) removes duplicates and returns an unordered collection.
+list(s) returns a list of characters from the string.
+Example 4: Other Conversions – Complex, String, Dictionary
+
+
+
+
+
+a = 1
+tup = (('a', 1), ('f', 2), ('g', 3))
+print("To complex:", complex(1, 2))
+print("To string:", str(a))
+print("To dict:", dict(tup))
+
+Output
+To complex: (1+2j)
+To string: 1
+To dict: {'a': 1, 'f': 2, 'g': 3}
+In the above example:
+
+complex(1, 2) creates a complex number with real part 1 and imaginary part 2.
+str(a) converts the integer 1 to the string "1".
+dict(tup) creates a dictionary from a sequence of key-value tuples.
