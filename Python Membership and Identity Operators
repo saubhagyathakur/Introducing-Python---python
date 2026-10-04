@@ -1,0 +1,174 @@
+In Python, Membership and Identity operators help us check relationships between values and objects. They are mainly used to test whether a value exists within a sequence or whether two variables refer to same object in memory.
+
+Membership Operators
+The Membership operators test for the membership of an object in a sequence, such as strings, lists or tuples. Python offers two membership operators to check or validate the membership of a value. They are as follows:
+
+1. IN Operator
+The "in" operator returns True if the given element exists inside a sequence, otherwise it returns False.
+
+
+
+
+
+l = [1, 2, 3, 4, 5]
+s = "Hello World"
+d = {1: "Geeks", 2: "for", 3: "geeks"}
+​
+print(2 in l)
+print('O' in s)
+print(3 in d)
+
+Output
+True
+False
+True
+Explanation:
+
+2 in l: True because 2 exists in the list.
+'O' in s: False because Python is case-sensitive ('O' ≠ 'o').
+3 in d: True because dictionary membership checks keys, not values.
+2. NOT IN Operator
+The "not in" operator works the opposite of "in" operator, it returns True if the element is not found in a sequence.
+
+
+
+
+
+l = [1, 2, 3, 4, 5]
+s = "Hello World"
+d = {1: "Geeks", 2: "for", 3: "geeks"}
+​
+print(2 not in l)
+print('O' not in s)
+print(3 not in d)
+
+Output
+False
+True
+False
+Explanation:
+
+2 not in l: False because 2 exists.
+'O' not in s: True because 'O' is missing.
+3 not in d: False because 3 is a key in the dictionary.
+3. operator.contains() Method
+Python also provides a function from the operator module called contains() that works like in.
+
+Syntax:
+
+operator.contains(sequence, value)
+
+Example: Using operator.contains() with different sequences
+
+
+
+
+
+import operator
+​
+print(operator.contains([1, 2, 3, 4, 5], 2))         # list
+print(operator.contains("Hello World", 'O'))         # string
+print(operator.contains({1, 2, 3, 4, 5}, 6))         # set
+print(operator.contains({1: "Geeks", 2:"for"}, 3))   # dictionary key
+print(operator.contains((1, 2, 3, 4, 5), 9))         # tuple
+
+Output
+True
+False
+False
+False
+False
+Explanation: Works the same as in, but in function form (useful in functional programming).
+
+Identity Operators
+The Identity Operators are used to compare the objects if both objects are actually of same data type and share same memory location. There are different identity operators such as:
+
+1. IS Operator
+The "is" operator checks if two variables point to the same object (same memory location).
+
+
+
+
+
+n1 = 5
+n2 = 5
+​
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+​
+s1 = "hello world"
+s2 = "hello world"
+​
+print(n1 is n2)  # integers
+print(a is b)        # lists
+print(a is c)        # reference
+print(s1 is s2)      # strings
+
+Output
+True
+False
+True
+True
+Explanation:
+
+n1 is n2: True because small integers are cached by Python.
+a is b: False because even though the lists look the same, they are stored at different memory locations.
+a is c: True because c directly refers to a.
+s1 is s2: True because Python reuses identical string objects.
+2. IS NOT Operator
+The "is not" operator checks if two variables point to different objects.
+
+
+
+
+
+n1 = 5
+n2 = 5
+​
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+​
+s1 = "hello world"
+s2 = "hello world"
+​
+print(n1 is not n2)
+print(a is not b)
+print(a is not c)
+print(s1 is not s2)
+
+Output
+False
+True
+False
+False
+Explanation:
+
+a is not b: True because they are different objects.
+a is not c: False because they point to the same object.
+Difference Between == and is
+The equality operator (==) is used to compare value of two variables, whereas identity operator (is) is used to compare memory location of two variables.
+
+Example: In this code we have two lists that contains same data, we used 'is' operator and '==' operator to compare both lists.
+
+
+
+
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+​
+print(a is b)   # identity check
+print(a == b)   # value check
+
+Output
+False
+True
+Explanation:
+
+a == b: True because the contents are the same.
+a is b: False because they are stored as separate list objects.
+Mutable objects (list, dict, set) always create new objects, so "is" operator between identical-looking containers always returns False.
+Immutable objects (str, tuple, small integers) may reuse memory, so "is" can sometimes return True depending on Python's implementation.
+
