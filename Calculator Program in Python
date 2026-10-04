@@ -1,0 +1,62 @@
+In this article, we'll walk you through creating a simple calculator program in Python. This calculator will perform basic operations such as addition, subtraction, and multiplication based on the user's choice.
+
+Introduction to the Calculator Program
+When you run the calculator program, it displays a message asking the user to select an operation. The available operations are:
+
+Addition
+Subtraction
+Multiplication
+Depending on the user's choice, the program will prompt for two numbers and perform the selected operation. If the user inputs an invalid choice, the program will notify them and exit.
+
+Requirements and Functionality
+Display Menu: Show the operations available for the user to choose from.
+User Input: Ask the user to select an operation and enter two numbers.
+Perform Calculation: Based on the user’s choice, perform the corresponding arithmetic operation.
+Handle Invalid Input: If the user enters a choice other than 1, 2, or 3, display an error message and exit the program.
+Python Code for the Calculator
+Here's the complete Python program for the basic calculator:
+
+
+print("""
+Please select an operation:
+1. Addition
+2. Subtraction
+3. Multiplication
+""")
+
+ch = int(input("Select operation from 1, 2, or 3: "))
+
+if ch not in (1, 2, 3):
+    print("Invalid choice")
+    sys.exit()
+
+n1 = float(input("Enter the first number: "))
+n2 = float(input("Enter the second number: "))
+
+if ch == 1:
+    res = n1 + n2
+elif ch == 2:
+    res = n1 - n2
+else:
+    res = n1 * n2
+
+print("The result is: ", res) 
+Output:
+
+Please select an operation:
+
+1. Addition
+2. Subtraction
+3. Multiplication
+
+Select operation from 1, 2, or 3: 3
+Enter the first number: 12
+Enter the second number: 13
+The result is:  156.0
+
+Explanation:
+
+Menu Display: The print() statement with triple quotes displays the menu options in a readable format.
+User Input: The input() function captures the user's choice and the two numbers.
+Choice Validation: The if choice not in (1, 2, 3): checks if the entered choice is valid. If not, it prints an error message and exits using sys.exit().
+Perform Calculation: Depending on the user's choice, the program performs the corresponding arithmetic operation.The result of the operation is printed to the screen.
