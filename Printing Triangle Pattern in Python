@@ -1,0 +1,60 @@
+Printing patterns is a common exercise for learning programming concepts such as loops and conditional statements. In this article, we will discuss how to print a triangular pattern of stars in Python. The number of rows in the triangle is determined by a predefined number, and we will use nested loops to achieve the desired output.
+
+Problem Statement
+We need to write a Python program that uses an integer n to print a triangular pattern of stars (*). The number of rows in the triangle will be n, and the number of stars in each row will correspond to the row number.
+
+For example:
+
+If n = 4, the output should be:
+
+*
+**
+***
+****
+
+If n = 5, the output should be:
+
+*
+**
+***
+****
+*****
+
+Approach
+To solve this problem, we will use nested loops:
+
+The outer loop will iterate n times, representing each row.
+The inner loop will print stars in each row. The number of stars printed in a row corresponds to the row number.
+We will use the range() function to generate the sequence of numbers for the loops. The print() function will be used with the end=' ' parameter to ensure that stars are printed on the same line without a newline character. After printing stars for a row, a new line will be printed to start the next row.
+
+Python Implementation
+Here is the Python code to print the required triangular pattern:
+
+
+
+
+
+n = 3
+for i in range(n):
+    for j in range(i + 1):
+        print('*', end=' ')
+    print()
+
+Output
+* 
+* * 
+* * * 
+Step-by-Step Execution
+1. Initialization: We set n = 3.
+
+2. Outer Loop: The outer loop will iterate 3 times (for i = 0, 1, 2).
+
+3. Inner Loop: For each iteration of the outer loop, the inner loop will iterate i + 1 times.
+
+For i = 0, the inner loop runs once (j = 0), printing one star.
+For i = 1, the inner loop runs twice (j = 0, 1), printing two stars.
+For i = 2, the inner loop runs three times (j = 0, 1, 2), printing three stars.
+4. New Line: After each row is printed, the print() function is called to move to the next line.
+
+This process repeats until the outer loop completes its n iterations.
+
