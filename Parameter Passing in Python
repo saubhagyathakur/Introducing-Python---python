@@ -1,0 +1,132 @@
+Parameter passing in Python describes how values are given to functions. Python uses a pass-by-object-reference mechanism.
+
+The changes to mutable objects inside a function affect the original object.
+Reassigning immutable objects does not affect the original value.
+Understanding this helps predict how functions change variables.
+Example 1: Immutable Data Types
+Consider the following example with an integer, which is an immutable data type in Python:
+
+
+
+
+
+x = 10
+​
+def fun(x):
+    x = 15
+​
+fun(x)
+print(x)
+
+Output
+10
+In the above example:
+
+The variable "x" is initially assigned the value 10.
+When "x" is passed to the function fun, the function receives a copy of the reference to the integer object 10.
+Inside the function, "x" is reassigned to 15, which creates a new integer object.
+This reassignment does not affect the original variable outside the function because integers are immutable. Therefore, the value of x remains 10.
+Example 2: Mutable Data Types
+Now, let's look at an example with a list, which is a mutable data type:
+
+
+
+
+
+l = [10, 20, 30]
+def fun(l):
+    l.append(15)
+​
+fun(l)
+print(l)
+
+Output
+[10, 20, 30, 15]
+In the above example:
+
+The list "l" is a mutable object.
+When "l" is passed to the function, the function receives a reference to the same list.
+The append(15) operation modifies the list in place.
+Since the original list is changed inside the function, the change is visible outside the function. Therefore, the updated list is printed.
+Detailed Explanation with IDs
+To further clarify, let's use Python's 'id' function to check the identities of objects:
+
+
+
+
+
+x = 10
+def fun(x):
+    print(id(x))    # ID of local x before reassignment
+    x = 15
+    print(id(x))    # ID of local x after reassignment
+​
+​
+print(id(x))        # ID of global x
+fun(x)
+print(id(x))        # ID of global x remains unchanged
+
+Output
+140244975777568
+140244975777568
+140244975777728
+140244975777568
+In the above example:
+
+The id() function returns the memory identity of an object, which can change each time the program is executed.
+Although the numeric id() values differ across runs, the relationship remains the same: reassignment inside the function creates a new object, while the global variable remains unchanged.
+This behavior occurs because Python allocates memory dynamically, so object addresses are not fixed between executions.
+For the list example:
+
+
+
+
+
+l = [10, 20, 30]
+​
+def fun(l):
+    print(id(l))  # ID of local l before modification
+    l.append(15)
+    print(id(l))  # ID of local l after modification
+​
+​
+print(id(l))  # ID of global l
+fun(l)
+print(id(l))  # ID of global l remains the same
+
+Output
+140387516122368
+140387516122368
+140387516122368
+140387516122368
+In the above example:
+
+The id() function returns the memory identity of the list object, and its numeric value may change on each program run due to dynamic memory allocation.
+Within a single execution, the global list l and the local parameter l refer to the same object, so their id() values remain the same before and after modification.
+Since lists are mutable, append() modifies the existing object rather than creating a new one, and the change is reflected outside the function.
+In both cases, you will see that the IDs of the global variables remain unchanged. For the integer, the local variable inside the function points to a new object after reassignment. For the list, the local and global variables point to the same object throughout.
+
+Modifying vs. Reassigning
+It's crucial to understand the difference between modifying an object and reassigning a reference:
+
+Modifying: Changes the object itself (e.g., appending to a list).
+Reassigning: Creates a new reference, leaving the original object unchanged.
+Example with Reassignment in a List
+Consider this modified list example:
+
+
+
+
+
+def fun(l):
+    l = [40, 50]  # Reassignment to a new list
+    print(l)  
+l = [10, 20, 30]
+fun(l)
+print(l)
+
+Output
+[40, 50]
+[10, 20, 30]
+Here, inside the function, "l" is reassigned to a new list "[40, 50]". This reassignment does not affect the original list "l" outside the function. The original list remains unchanged.
+
