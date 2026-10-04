@@ -1,0 +1,118 @@
+The input() function in Python is used to take input from the user. It waits for the user to type something on keyboard and once user presses Enter, it returns the value.
+
+By default, input() always returns data as a string, even if you enter numbers. If you want other types like integer (int) or floating-point (float), you have to convert (typecast) the value explicitly.
+
+Example:
+
+name = input("What is your name? ")
+
+If the user types "Emily", then name will store "Emily".
+
+Syntax
+input(prompt)
+
+Parameter: prompt (optional) A message you display to the user before taking input.
+Return Value: Always returns the entered data as a string.
+Refer Python Data Types article to understand more.
+
+Examples
+Let's look at some examples to understand it more.
+
+Example 1: Taking Input as a String
+
+
+a = input("What color is the rose? ")
+print("The rose is", a)
+Output
+
+What color is the rose? red
+The rose is red
+
+Example 2: Taking Input as an Integer
+
+By default, numbers are also taken as strings. To use them in arithmetic, we must convert them using int().
+
+
+n = int(input("How many roses? "))
+print("Total roses:", n)
+Output
+
+How many roses? 10
+Total roses: 10
+
+Here, string "10" is converted to integer 10. Without int(), we wouldn’t be able to perform addition or multiplication with it.
+
+Example 3: Taking Input as a Float
+
+
+p = float(input("Price of each rose? "))
+print("Price entered:", p)
+Output
+
+Price of each rose? 15.50
+Price entered: 15.5
+
+Notice that 15.50 gets converted into floating-point number 15.5.
+
+Example 4: Taking Multiple Inputs
+
+You can take multiple values in a single line, separated by spaces. Python allows splitting them using .split().
+
+
+x, y = input("Enter two numbers separated by space: ").split()
+print("First number:", x)
+print("Second number:", y)
+Output
+
+Enter two numbers separated by space: 10 20
+First number: 10
+Second number: 20
+
+Example 5: Name and Age Input
+
+
+name = input("Please Enter Your Name: ")
+age = input("Please Enter Your Age: ")
+print("Name and Age:", name, age)
+Output
+
+Please Enter Your Name: Rock
+Please Enter Your Age: 16
+Name and Age: Rock 16
+
+Example 6: Adding Two Numbers
+
+Here’s how you can take two numbers from the user and add them:
+
+
+n1 = int(input("First Number: "))
+n2 = int(input("Second Number: "))
+s = n1 + n2
+print("Sum of two numbers is:", s)
+Output
+
+First Number: 5
+Second Number: 7
+Sum of two numbers is: 12
+
+Since we used int(), both inputs are integers, and addition works correctly.
+
+Example 7: Taking Lists as Input
+
+Sometimes, you may want to take a list from the user. Since input() returns a string, we can use list() or .split() to convert it into a list.
+
+
+a = list(input("List1: "))
+b = list(input("List2: "))
+for i in b:
+    a.append(i)
+
+print("Final List:", a)
+Output
+
+List1: abc
+List2: xy
+Final List: ['a', 'b', 'c', 'x', 'y']
+
+Here, "abc" becomes ['a', 'b', 'c'], "xy" becomes ['x', 'y'] then b is appended into a.
+
