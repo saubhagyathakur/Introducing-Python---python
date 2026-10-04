@@ -1,0 +1,104 @@
+Given a string, the task is to reverse it. For example:
+
+Input: "Geeks"
+Output: "skeeG" 
+
+Using string slicing
+Python slicing supports step values. We can reverse the string by taking a step value of -1.
+
+
+
+
+
+s = "GeeksforGeeks"
+rev = s[::-1]
+print(rev)
+
+Output
+skeeGrofskeeG
+Explanation:
+
+s[::-1] is a slicing operation.
+"::" means that the entire string is being selected.
+-1 indicates the step, meaning the string is read from right to left.
+Using reversed() and join()
+Python provides a built-in function called reversed() which can be used to reverse the characters in a string.
+
+
+
+
+
+s = "GeeksforGeeks"
+rev = ''.join(reversed(s))
+print(rev)
+
+Output
+skeeGrofskeeG
+Explanation:
+
+reversed(s) returns an iterator of the characters in s in reverse order.
+''.join(reversed(s)) then joins these characters into a new string.
+Using a Loop
+If we need more control over the reversal process then we can use a for loop to reverse the string.
+
+
+
+
+
+s = "GeeksforGeeks"
+​
+rev = ""
+for ch in s:
+    rev = ch + rev
+​
+print(rev)
+
+Output
+skeeGrofskeeG
+Explanation:
+
+loop iterates over each character in the string.
+Each character (ch) is added to rev, this results in effectively reversing the string step by step.
+Using list comprehension and join()
+Reverse the string by iterating over its indices in reverse order using range(). The list comprehension collects characters from last to first, and join() combines them into the final reversed string.
+
+
+
+
+
+s = "GeeksforGeeks"
+rev = ''.join([s[i] for i in range(len(s) - 1, -1, -1)])
+print(rev)
+
+Output
+skeeGrofskeeG
+Explanation:
+
+[s[i] for i in range(len(s) - 1, -1, -1)] creates a list of characters from the string by iterating backwards.
+''.join() then concatenates these characters into a new string.
+Using stack
+We can use a stack data structure to reverse a string due to its Last In First Out (LIFO) property. This means that the last element added to the stack will be the first one to be removed, this effectively reverse the order of the elements.
+
+Note: list can be easily used to simulate the behavior of a stack. It provides built-in methods like .append() and .pop(), which make it suitable for stack operations.
+
+
+
+
+
+s = "GeeksforGeeks"
+​
+stack = list(s)
+rev = ""
+​
+while stack:
+    rev += stack.pop()
+print(rev)
+
+Output
+skeeGrofskeeG
+Explanation:
+
+stack = list(s) converts the string into a list of characters.
+stack.pop() removes and returns the last element of the list, which effectively working like a stack.
+Note: Python also has a collections.deque module, which provides a deque (double-ended queue) that can also be used as a stack.
+
