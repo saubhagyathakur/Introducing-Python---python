@@ -1,0 +1,97 @@
+Returning multiple values in Python allows a function to provide more than one result at once. This is commonly done using tuples, lists or dictionaries, making it easier to return and handle multiple outputs efficiently from a single function call.
+
+Using Tuple
+Returning multiple values using a tuple allows a function to send back multiple results together in an ordered form. These values can then be directly assigned to multiple variables during function call.
+
+
+
+
+
+def calc(a, b):
+    s = a + b
+    m = a * b
+    return s, m
+​
+# Function call
+x, y = calc(10, 20)
+print("Sum:", x)
+print("Multiplication:", y)
+
+Output
+Sum: 30
+Multiplication: 200
+Explanation:
+
+s = a + b: calculates sum of a and b.
+m = a * b: calculates multiplication of a and b.
+return s, m: returns both values as a tuple.
+x, y = calc(10, 20): unpacks returned tuple into x and y.
+Using Tuple (Extended Values)
+A tuple can hold more than two values, allowing a function to return multiple results like sum, multiplication and subtraction together.
+
+
+
+
+
+def calc(a, b):
+    s = a + b
+    m = a * b
+    d = a - b
+    return s, m, d
+​
+x, y, z = calc(10, 20)
+print("Sum:", x)
+print("Multiplication:", y)
+print("Subtraction:", z)
+
+Output
+Sum: 30
+Multiplication: 200
+Subtraction: -10
+Explanation:
+
+s = a + b: stores sum, m = a * b: stores multiplication and d = a - b: stores subtraction.
+return s, m, d: returns three values as a tuple.
+x, y, z = calc(10, 20): unpacks all returned values.
+Using List
+A list can be used to return multiple values as a single collection. The returned values can be accessed using indexing.
+
+
+
+
+
+def calc(a, b):
+    return [a + b, a * b, a - b]
+​
+res = calc(10, 20)
+print("Results:", res)
+
+Output
+Results: [30, 200, -10]
+Explanation:
+
+return [a + b, a * b, a - b]: returns values as a list.
+res = calc(10, 20): stores the list in res.
+Using Dictionary
+A dictionary allows returning multiple values with labels, making it easier to identify each result.
+
+
+
+
+
+def calc(a, b):
+    return {
+        's': a + b,
+        'm': a * b,
+        'd': a - b
+    }
+​
+res = calc(10, 20)
+print("Sum:", res['s'])
+print("Multiplication:", res['m'])
+print("Subtraction:", res['d'])
+
+Output
+Sum: 30
+Multiplication: 200
+Subtraction: -10
