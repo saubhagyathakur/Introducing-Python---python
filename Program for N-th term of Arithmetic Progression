@@ -1,0 +1,105 @@
+Given first term (a), common difference (d) and a integer N of the Arithmetic Progression series, the task is to find Nth term of the series.
+
+Examples :
+
+Input : a = 2 d = 1 N = 5
+Output : 6
+The 5th term of the series is 6. The terms are 2, 3, 4, 5, 6, ....
+
+Input : a = 5 d = 2 N = 10
+Output : 23
+The 10th term of the series is : 23 
+
+Table of Content
+
+Naive Solution
+Expected Approach
+Naive Solution
+Using a loop to iterate over each term in the series until the N-th term is reached.
+
+
+
+
+
+#include <iostream>
+using namespace std;
+​
+int main()
+{
+    int a = 2;
+    int d = 1;
+    int n = 5;
+    
+    int nthTerm = a;
+    for (int i = 1; i < n; i++)
+    {
+        nthTerm += d;
+    }
+    cout << "The " << n << "th term of the series is: " 
+         << nthTerm << endl;
+    return 0;
+}
+
+Output
+The 5th term of the series is: 6
+Time Complexity - O(n)
+Space Complexity - O(1)
+
+Expected Approach
+To find the Nth term in the Arithmetic Progression series we use the simple formula . 
+
+We know the Arithmetic Progression series is like = 2, 5, 8, 11, 14 …. … 
+In this series 2 is the starting term of the series . 
+Common difference = 5 – 2 = 3 (Difference common in the series). 
+so we can write the series as :
+t1 = a1 
+t2 = a1 + (2-1) * d 
+t3 = a1 + (3-1) * d 
+. 
+. 
+. 
+tn = a1 + (n - 1) * d
+
+TN = a1 + (N-1) * d
+
+
+
+
+
+// CPP Program to find nth term of 
+// Arithmetic progression
+#include <bits/stdc++.h>
+using namespace std;
+​
+int Nth_of_AP(int a, int d, int N)
+{ 
+    // using formula to find the 
+    // Nth term tn = a1 + (n-1)*d
+    return (a + (N - 1) * d);
+    
+}
+​
+// Driver code
+int main() 
+{
+    // starting number
+    int a = 2; 
+    
+    // Common difference
+    int d = 1; 
+    
+    // N th term to be find
+    int N = 5; 
+    
+    // Display the output
+    cout << "The "<< N 
+         <<"th term of the series is : "
+         << Nth_of_AP(a,d,N);
+​
+    return 0;
+}
+
+Output
+The 5th term of the series is : 6
+Time Complexity - O(1)
+Space Complexity - O(1)
