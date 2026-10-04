@@ -1,0 +1,87 @@
+The print() function in Python displays the given values as output on the screen. It can print one or multiple objects and allows customizing separators, endings, output streams and buffer behavior. It is one of the most commonly used functions for producing readable output.
+
+Example 1: This example prints a list, tuple, and string together using the default separator and ending.
+
+
+
+
+
+lst = [1, 2, 3]
+t = ("A", "B")
+s = "Python"
+print(lst, t, s)
+
+Output
+[1, 2, 3] ('A', 'B') Python
+Explanation: The function prints all objects in one line separated by the default space because sep=" ".
+
+Syntax
+print(*objects, sep=' ', end='\n', file=None, flush=False)
+
+Parameters:
+
+*objects: one or more values to print (positional arguments)
+sep: string inserted between objects (default is ' ')
+end: string appended at the end (default is '\n')
+file: output stream (default is sys.stdout)
+flush: whether to flush the stream immediately (default is False)
+Note: The parameters sep, end, file, and flush in the print() function are keyword-only arguments. This means they must be specified using their parameter names, not by position.
+
+Example 2: This example prints multiple objects but uses a custom separator to control spacing.
+
+
+
+
+
+lst = [1, 2, 3]
+t = ("A", "B")
+s = "Python"
+print(lst, t, s, sep=" | ")
+
+Output
+[1, 2, 3] | ('A', 'B') | Python
+Explanation: The separator " | " replaces the default space, so print() inserts " | " between each object.
+
+Example 3: This example shows how to print output without moving to the next line by changing the end character.
+
+
+
+
+
+lst = [1, 2, 3]
+t = ("A", "B")
+s = "Python"
+print(lst, t, s, end=" --> END")
+
+Output
+[1, 2, 3] ('A', 'B') Python --> END
+Explanation: The text " --> END" is printed at the end instead of the default newline because of end=" --> END".
+
+Example 4: This example reads a file and prints its entire content using print().
+
+dfhfgh
+notepad
+To read and print this content we will use the below code:
+
+
+f = open("geeksforgeeks.txt", "r")
+print(f.read())
+f.close()
+Output
+
+Geeksforgeeks is best for DSA.
+
+Example 5: This example prints output to the error stream instead of the default output stream.
+
+
+import sys
+company = "GFG"
+loc = "Noida"
+mail = "contact@gfg.org"
+print(company, loc, mail, file=sys.stderr)
+Output
+
+GFG Noida contact@gfg.org
+
+Explanation: Using file=sys.stderr redirects the printed text to the error output stream instead of the standard output.
+
