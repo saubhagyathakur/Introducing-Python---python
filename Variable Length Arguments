@@ -1,0 +1,105 @@
+In Python, functions can accept a variable number of arguments. This flexibility is achieved using variable length arguments. We will explore how to implement and use variable length arguments in Python, focusing on both positional and keyword arguments.
+
+Variable Length Positional Arguments
+Basic Concept
+Variable length positional arguments allow you to pass a varying number of arguments to a function. These arguments are captured as a tuple. Here’s an example to demonstrate:
+
+
+
+
+
+def sum_ele(*elements):
+    result = 0
+    for element in elements:
+        result += element
+    return result
+​
+print(sum_ele(10, 20))    
+print(sum_ele(10, 20, 30))  
+print(sum_ele(10))       
+print(sum_ele())
+
+Output
+30
+60
+10
+0
+In this example, the *elements syntax means that all additional arguments passed to sum_ele are captured as a tuple named elements.
+
+Using Additional Parameters
+You can also define functions with both fixed and variable length arguments:
+
+
+
+
+
+def sum_with_initial(initial_sum, *elements):
+    res = initial_sum
+    for element in elements:
+        res += element
+    return res
+​
+print(sum_with_initial(0, 10, 20))       
+print(sum_with_initial(5, 10, 15))      
+print(sum_with_initial(0, 10, 20, 30))
+
+Output
+30
+30
+60
+In this function, initial_sum is a required argument, and any additional arguments are captured in the elements tuple.
+
+Variable Length Keyword Arguments
+Basic Concept
+Variable length keyword arguments allow you to pass a varying number of named arguments to a function. These arguments are captured as a dictionary. Here’s an example:
+
+
+
+
+
+def print_details(**details):
+    for key, value in details.items():
+        print(f"{key} is {value}")
+​
+​
+print_details(ID=101, name="ABC", price=100)
+print_details(ID=102, name="XYZ")
+
+Output
+ID is 101
+name is ABC
+price is 100
+ID is 102
+name is XYZ
+In this example, the **details syntax means that all additional named arguments are captured as a dictionary named details.
+
+Combining with Fixed Arguments
+You can also combine fixed arguments with variable length keyword arguments:
+
+
+
+
+
+def print_item(ID, **details):
+    print(f"ID: {ID}")
+    for key, value in details.items():
+        print(f"{key} is {value}")
+​
+print_item(101, name="ABC", price=100)
+print()
+print_item(102, name="XYZ", color="black")
+
+Output
+ID: 101
+name is ABC
+price is 100
+
+ID: 102
+name is XYZ
+color is black
+In this function, ID is a required argument, and any additional named arguments are captured in the details dictionary.
+
+Advantages of Variable Length Arguments
+Flexibility: They allow you to write functions that can handle different numbers of arguments, making your code more flexible and reusable.
+Readability: Using keyword arguments can improve the readability of your code by clearly specifying the names of the parameters.
+Reduced Code Redundancy: You can avoid writing multiple functions for different numbers of arguments.
