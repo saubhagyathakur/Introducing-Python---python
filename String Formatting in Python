@@ -1,0 +1,252 @@
+String formatting in Python is used to insert variables and expressions into strings in a readable and structured way. It helps create dynamic output and improves the clarity and presentation of text in programs.
+
+Methods of String Formatting in Python
+There are five different ways to perform string formatting in Python:
+
+Formatting with % Operator.
+Formatting with format() string method.
+Formatting with string literals, called f-strings.
+Formatting with String Template Class
+Formatting with center() string method.
+1. Format String using % Operator
+It is the oldest method of string formatting. Here we use the modulo % operator. The modulo % is also known as the “string-formatting operator”.
+
+Python Format String Using the % Operator
+In the expression "The mangy, scrawny stray dog %s gobbled down" % 'hurriedly', the %s placeholder within the string is replaced by the value 'hurriedly'.
+
+
+
+
+
+print("The mangy, scrawny stray dog %s gobbled down" %'hurriedly' + 
+      "the grain-free, organic dog food.")
+
+Output
+The mangy, scrawny stray dog hurriedly gobbled downthe grain-free, organic dog food.
+Injecting Multiple Strings using the modulo Operator
+Here we are inserting multiple strings with the % operator.
+
+
+
+
+
+x = 'looked'
+print("Misha %s and %s around"%('walked',x))
+
+Output
+Misha walked and looked around
+Precision Handling in Python using % operator
+Floating-point numbers use the format %a.bf. Here, 'a' would be the minimum number of digits to be present in the string; these might be padded with white space if the whole number doesn't have these many digits.
+
+Close to this, bf represents how many digits are to be displayed after the decimal point. 
+
+In this code, the string 'The value of pi is: %5.4f' contains a format specifier %5.4f. The %5.4f format specifier is used to format a floating-point number with a minimum width of 5 and a precision of 4 decimal places.
+
+
+
+
+
+print('The value of pi is: %5.4f' %(3.141592))
+
+Output
+The value of pi is: 3.1416
+Multiple format conversion types
+In the given code, the formatting string Python is converted to Integer and floating point with %d,%f.
+
+
+
+
+
+variable = 12 
+string = "Variable as integer = %d \n\
+Variable as float = %f" %(variable, variable)
+print (string)
+
+Output
+Variable as integer = 12 
+Variable as float = 12.000000
+2. Format String using format() Method
+Format() method was introduced with Python3 for handling complex string formatting more efficiently.
+
+Formatters work by putting in one or more replacement fields and placeholders defined by a pair of curly braces { } into a string and calling the str.format(). The value we wish to put into the placeholders and concatenate with the string passed as parameters into the format function. 
+
+Syntax
+'String here {} then also {}'.format('something1','something2')
+
+Formatting String Python using format() Method
+This code is using {} as a placeholder and then we have called.format() method on the 'equal' to the placeholder.
+
+
+
+
+
+print('We all are {}.'.format('equal'))
+
+Output
+We all are equal.
+Index-based Insertion
+In this code, curly braces {} with indices are used within the string '{2} {1} {0}' to indicate the positions where the corresponding values will be placed.
+
+
+
+
+
+print('{2} {1} {0}'.format('directions',
+                           'the', 'Read'))
+
+Output
+Read the directions
+Insert object by Assigning Keywords
+In this code, curly braces {} with named placeholders ({a}, {b}, {c}) are used within the string 'a: {a}, b: {b}, c: {c}' to indicate the positions where the corresponding named arguments will be placed.
+
+
+
+
+
+print('a: {a}, b: {b}, c: {c}'.format(a = 1,
+                                      b = 'Two',
+                                      c = 12.3))
+
+Output
+a: 1, b: Two, c: 12.3
+Reuse the inserted objects
+In this code, curly braces {} with named placeholders ({p}) are used within the string 'The first {p} was alright, but the {p} {p} was tough.' to indicate the positions where the corresponding named argument p will be placed.
+
+
+
+
+
+print(
+    'The first {p} was alright, but the {p} {p} was tough.'.format(p='second'))
+
+Output
+The first second was alright, but the second second was tough.
+Float Precision with the.format() Method
+Syntax
+{[index]:[width][.precision][type]}
+
+The type can be used with format codes:
+
+'d' for integers
+'f' for floating-point numbers
+'b' for binary numbers
+'o' for octal numbers
+'x' for octal hexadecimal numbers
+'s' for string
+'e' for floating-point in an exponent format
+Example: Both the codes are doing string formatting. The first String is formatted with '%' and the second String is formatted with .format().
+
+
+
+
+
+print('The valueof pi is: %1.5f' %3.141592)
+print('The valueof pi is: {0:1.5f}'.format(3.141592))
+
+Output
+The valueof pi is: 3.14159
+The valueof pi is: 3.14159
+3. Understanding Python f-string
+PEP 498 introduced a new string formatting mechanism known as Literal String Interpolation or more commonly as F-strings (because of the leading f character preceding the string literal). The idea behind f-String in Python is to make string interpolation simpler.
+
+To create an f-string in Python, prefix the string with the letter "f". The string itself can be formatted in much the same way that you would with str. format(). F-strings provide a concise and convenient way to embed Python expressions inside string literals for formatting.
+
+String Formatting with F-Strings
+In this code, the f-string f"My name is {name}." is used to interpolate the value of the name variable into the string.
+
+
+
+
+
+name = 'Ele'
+print(f"My name is {name}.")
+
+Output
+My name is Ele.
+This new formatting syntax is very powerful and easy. You can also insert arbitrary Python expressions and you can even do arithmetic operations in it.
+
+Arithmetic operations using F-strings
+In this code, the f-string f" He said his age is {2 * (a + b)}." is used to interpolate the result of the expression 2 * (a + b) into the string.
+
+
+
+
+
+a = 5
+b = 10
+print(f"He said his age is {2 * (a + b)}.")
+
+Output
+He said his age is 30.
+We can also use lambda expressions in f-string formatting.
+
+Lambda Expressions using F-strings
+In this code, an anonymous lambda function is defined using lambda x: x*2. This lambda function takes an argument x and returns its double.
+
+
+print(f"He said his age is {(lambda x: x*2)(3)}")
+
+Output
+He said his age is 6
+Float precision in the f-String Method
+In this code, f-string formatting is used to interpolate the value of the num variable into the string.
+
+Syntax
+ {value:{width}.{precision}}
+
+
+
+
+
+num = 3.14159
+​
+print(f"The valueof pi is: {num:{1}.{5}}")
+
+Output
+The valueof pi is: 3.1416
+4. Python String Template Class
+In the String module, Template Class allows us to create simplified syntax for output specification. The format uses placeholder names formed by $ with valid Python identifiers (alphanumeric characters and underscores). Surrounding the placeholder with braces allows it to be followed by more alphanumeric letters with no intervening spaces. Writing $$ creates a single escaped $:
+
+Formatting String Python Using Template Class
+This code imports the Template class from the string module. The Template class allows us to create a template string with placeholders that can be substituted with actual values. Here we are substituting the values n1 and n2 in place of n3 and n4 in the string n.
+
+
+
+
+
+from string import Template
+​
+n1 = 'Hello'
+n2 = 'GeeksforGeeks'
+​
+n = Template('\$n3 ! This is \$n4.')
+print(n.substitute(n3=n1, n4=n2))
+
+Output
+Hello ! This is GeeksforGeeks.
+5. Format String using center() Method
+The center() method is a built-in method in Python's str class that returns a new string that is centered within a string of a specified width. 
+
+Formatting string using center() method
+This code returns a new string padded with spaces on the left and right sides.
+
+
+
+
+
+string = "GeeksForGeeks!"
+width = 30
+​
+centered_string = string.center(width)
+​
+print(centered_string)
+
+Output
+        GeeksForGeeks!        
+Python Format String: % vs .format vs. f-string literal
+f-strings are faster and better than both %-formatting and str.format(). f-strings expressions are evaluated at runtime, and we can also embed expressions inside f-string, using a very simple and easy syntax.
+
+The expressions inside the braces are evaluated in runtime and then put together with the string part of the f-string and then the final string is returned.
+
+Note: Use Template String if the string is a user-supplied string Else  Use f-Strings if you are on Python 3.6+, and. format() method if you are not.
+
