@@ -1,0 +1,86 @@
+Python programs run through a set of internal steps that convert human-readable code into instructions the machine can understand.
+
+Source code is not executed directly by the machine.
+Python processes the code internally before execution.
+This process allows the system to interpret and run programs correctly.
+Example:
+
+
+
+
+
+a = 10
+b = 10
+print("Sum:", (a+b))
+Output:
+
+Sum: 20
+
+Consider this code is saved in a file named first.py.
+
+Execution of a Python Program
+During the execution of first.py, Python performs two main steps:
+
+Step 1: Compilation to Bytecode
+Python first checks your code for syntax errors. If the code is valid, it is converted into bytecode.
+
+Bytecode is an intermediate, platform-independent format
+It is not machine code
+It represents instructions like calculations, comparisons, and memory operations
+This bytecode is stored in a .pyc file inside a folder named __pycache__.
+
+__pycache__/first.cpython-38.py
+
+Python handles this process automatically, so you usually don’t need to create .pyc files manually.
+
+Step 2: Execution by Python Virtual Machine (PVM)
+The Python Virtual Machine (PVM) reads the bytecode and executes it.
+
+PVM understands the operating system and processor
+It converts bytecode into machine-level instructions
+These instructions are then executed by the CPU
+This is why Python works on different platforms without changing the code.
+
+strings_hello_hello_help_2
+Execution of Python Program
+Python: An Interpreted Language
+The PVM executes bytecode instruction by instruction, not all at once. This line-by-line execution makes Python easy to debug but slightly slower than fully compiled languages.
+
+About JIT (Just-In-Time) Compilation
+To improve performance, some Python implementations use a Just-In-Time (JIT) compiler.
+
+How JIT Works
+Python first executes code normally using bytecode.
+The JIT compiler monitors the program and identifies frequently executed code (hot code).
+This hot code is compiled into machine code at runtime.
+The compiled code is reused for subsequent executions, avoiding repeated interpretation.
+CPython vs PyPy
+CPython executes bytecode line by line and does not use JIT. This makes repeated operations like large loops slower.
+PyPy uses JIT to compile frequently used code into machine code. Reusing this compiled code makes loops and computation-heavy tasks run much faster.
+Example:
+
+
+
+
+
+for i in range(10_000_000):
+    x = i * i
+In CPython -> Each iteration is interpreted -> slower execution.
+In PyPy -> Hot loop is compiled into machine code -> much faster execution.
+Viewing Bytecode Using dis
+Python provides the dis module to inspect bytecode.
+
+
+import dis
+dis.dis("a = 10\nb = 10\nprint(a + b)")
+Output:
+
+Output
+Snapshot of the Terminal
+The dis module (disassembler) shows:
+
+Line numbers
+Bytecode instructions
+Operation names and arguments
+This is mainly useful for learning and debugging, not for everyday programming.
+
