@@ -1,0 +1,188 @@
+Python for loops are used to iterate over sequences such as lists, tuples, strings and ranges.
+
+Allows the same operation to be applied to every item in a sequence.
+Avoids the need to manage loop indices manually.
+
+
+
+
+a = ["Geeks", "for", "Geeks"]
+for i in a:
+    print(i)
+
+Output
+Geeks
+for
+Geeks
+Explanation:
+
+a stores a list of strings.
+for i in a: iterates through each item in the list.
+Flowchart of For Loop
+forloop
+Flowchart of For Loop
+Syntax
+for variable in sequence:
+    # code block
+
+Loop Through String
+Here, for loop is used to iterate through each character of the string and prints them one by one.
+
+
+
+
+
+s = "Geeks"
+for i in s:
+    print(i)
+
+Output
+G
+e
+e
+k
+s
+range() Method
+range() function is used with for loops to generate a sequence of numbers. It can take one, two or three arguments:
+
+range(stop) generates numbers from 0 to stop-1.
+range(start, stop) generates numbers from start to stop-1.
+range(start, stop, step) generates numbers from start to stop-1, incrementing by step.
+
+
+
+
+for i in range(0, 10, 2):
+    print(i)
+
+Output
+0
+2
+4
+6
+8
+Explanation:
+
+range(0, 10, 2) generates numbers from 0 to 8 with step size 2.
+for i in range(...): iterates through generated numbers.
+Control Statements
+These statements are used to change the normal flow of loop execution in Python. They help control loop behavior by skipping iterations, stopping loops or acting as placeholders inside loops and conditional blocks.
+
+1. Continue Statement: continue skips the current iteration and moves control to the next iteration of the loop.
+
+
+
+
+
+for i in 'geeksforgeeks':
+    if i == 'e' or i == 's':
+        continue
+    print(i)
+
+Output
+g
+k
+f
+o
+r
+g
+k
+Explanation:
+
+for i in 'geeksforgeeks': iterates through each character.
+if i == 'e' or i == 's': checks for e or s.
+2. Break Statement: break immediately when a specified condition is met.
+
+
+
+
+
+for i in 'geeksforgeeks':
+    if i == 'e' or i == 's':
+        break
+print(i)
+
+Output
+e
+Explanation:
+
+for i in 'geeksforgeeks': iterates through characters of the string.
+if i == 'e' or i == 's': checks for e or s.
+3. Pass Statement: pass is used as a placeholder when no code needs to be executed.
+
+
+
+
+
+for i in 'geeksforgeeks':
+    pass
+Explanation:
+
+for i in 'geeksforgeeks': iterates through the string.
+pass acts as a placeholder and performs no operation.
+4. Else Statement: else block with a loop executes only when the loop completes normally without a break statement.
+
+
+
+
+
+for i in range(1, 4):
+    print(i)
+else:  
+    print("No Break\n")
+
+Output
+1
+2
+3
+No Break
+Explanation:
+
+for i in range(1, 4): iterates from 1 to 3.
+else: executes after loop completion.
+"No Break" is printed because loop ends normally without break.
+Using Enumerate
+enumerate() is used with a for loop to access both the index and the value of each item during iteration.
+
+
+
+
+
+b = ["eat", "sleep", "repeat"]
+for i, j in enumerate(b):
+    print (i, j)
+
+Output
+0 eat
+1 sleep
+2 repeat
+Explanation:
+
+enumerate(b) returns both index and value from list b.
+i stores index values and j stores list items.
+Nested For Loops
+These loops are used when one loop is placed inside another loop. The inner loop runs completely for every iteration of the outer loop.
+
+
+
+
+
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, j)
+
+Output
+1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+3 1
+3 2
+3 3
+Explanation:
+
+Outer loop iterates values from 1 to 3.
+Inner loop also iterates values from 1 to 3.
+print(i, j) prints every combination of i and j.
