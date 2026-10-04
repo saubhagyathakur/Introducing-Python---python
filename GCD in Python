@@ -1,0 +1,60 @@
+In this article, we will explore how to compute the GCD (Greatest Common Divisor) of two numbers using Python. We will discuss a simple approach and using Python's built-in functions.
+
+Understanding GCD
+The GCD of two numbers is the largest number that divides both of them without leaving a remainder. For example:
+
+The GCD of a = 6 and b = 9 is 3.
+The GCD of a = 10 and b = 15 is 5.
+The GCD of a = 4 and b = 8 is 4.
+The GCD of a = 9 and b = 10 is 1.
+If one number is zero, the GCD is the other number.
+Example Puzzle
+Consider a rectangular surface of size 6 × 9. To completely fill this surface using square tiles of equal size:
+
+Using 1 × 1 tiles, we need 54 tiles (6 × 9 = 54).
+Using 2 × 2 tiles is not possible as it will leave some areas uncovered.
+Using 3 × 3 tiles, we can fill the surface completely.
+The size of the largest square tile that can fill the surface is the GCD of the rectangle's dimensions.
+
+1. Simple Approach to Compute GCD
+The simple approach to finding the GCD is to iterate from 1 to the smaller of the two numbers and check for common divisors.
+
+Python Implementation:
+
+
+
+
+a = 10
+b = 15
+small = min(a, b)
+gcd = 1
+for i in range(1, small + 1):
+    if a % i == 0 and b % i == 0:
+        gcd = i
+print("The GCD of", a, "and", b, "is", gcd)
+
+Output
+The GCD of 10 and 15 is 5
+Explanation:
+Input: The numbers a and b are provided.
+Find Smaller Number: The min function finds the smaller of the two numbers.
+Loop: A for loop iterates from 1 to the smaller number.
+Check Divisibility: If both a and b are divisible by the current number, update gcd.
+Output: The largest common divisor found is printed.
+2. Using Python's Built-in Function
+Python's math module provides a built-in function gcd to compute the GCD of two numbers directly.
+
+Python Implementation:
+
+
+
+
+import math
+​
+a = 10
+b = 15
+gcd = math.gcd(a, b)
+print("The GCD of", a, "and", b, "is", gcd)
+
+Output
+The GCD of 10 and 15 is 5
