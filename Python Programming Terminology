@@ -1,0 +1,101 @@
+Python programming terminology includes commonly used concepts such as keywords, variables, functions, classes, and objects, which describe how Python programs are written and structured. Understanding these terms helps in effectively reading, writing, and interpreting Python code.
+
+Keywords
+Keywords are reserved words in Python that are used for specific purposes and form the basic syntax of the language. These words cannot be used as identifiers, such as names for variables or functions.
+
+for and while for loops
+True and False for boolean values
+Variables
+Variables are used to store data values in a Python program. A variable acts as a name that refers to a value stored in memory, and its value can change during program execution.
+
+
+x = 10
+name = "Python"
+
+In this example, x stores a numeric value and name stores a string value.
+
+Functions
+Functions are reusable blocks of code that perform a specific task. They help organize programs, reduce code repetition, and improve readability. For instance:
+
+
+
+
+
+print("Hello, World!")
+The print function displays output on the screen. In the above example, Hello, World! will be printed.
+
+
+x = input("Enter your name: ")
+The input function takes user input.
+
+Classes and Objects
+Classes are blueprints used to create objects. They define attributes and methods that describe the behavior of objects.
+
+Examples in a college management system:
+
+A Student class might have attributes like name and rollNumber, and methods like getMarks.
+A Teacher class might have attributes like name and subject, and methods like assignGrade.
+Objects are instances of classes that represent real-world entities. In Python, everything is treated as an object, including basic data types such as integers and strings.
+
+Modules and Packages
+Modules are files that contain Python code such as functions, variables, and classes, allowing code to be organized and reused.
+
+
+
+
+
+import math
+print(math.factorial(5))
+Output: 120
+
+In the above example:
+
+math is a built-in Python module that provides mathematical functions.
+factorial(5) is a function from the math module used to calculate the factorial of 5.
+Packages are collections of related modules grouped together in directories, helping manage large and complex projects.
+
+college/
+    __init__.py
+    student.py
+    teacher.py
+    courses/
+        __init__.py
+        cs_course.py
+        ec_course.py
+
+In the above example:
+
+college is a Python package that groups related modules.
+student.py and teacher.py are modules within the college package.
+courses is a sub-package inside the college package.
+cs_course.py and ec_course.py are modules within the courses sub-package.
+__init__.py files indicate that the directories should be treated as Python packages.
+Importing Modules
+To use the code defined in one module within another module, Python provides the import statement.
+
+
+
+
+
+import math
+print(math.sqrt(16))
+Output: 4.0
+
+In the above example::
+
+the math module is imported
+the sqrt() function is used to calculate the square root of 16
+If a module is part of a package, dotted notation is used to specify its location.
+
+
+from college.student import Student
+Here, the Student class is imported from the student module inside the college package.
+
+Python Path
+The Python Path is an environment variable that defines the directories where Python searches for modules. When a module is imported, Python looks for it in the following order:
+
+The current directory
+Directories specified in the PYTHONPATH environment variable
+Standard library directories
+The Python Path helps Python locate modules and packages correctly and can be viewed or modified at runtime using the sys.path list.
+
