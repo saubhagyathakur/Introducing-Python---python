@@ -1,0 +1,43 @@
+In this guide, we will explore a common computer science problem: pattern searching. This involves finding all occurrences of a smaller pattern within a larger text. This problem is similar to using the Ctrl + F function in word processors like Microsoft Word or performing a Google search.
+
+Problem Statement
+Given a large text and a smaller pattern, our task is to find all the indexes where the pattern occurs within the text. For example, if our text is "geeks for geeks" and our pattern is "geeks", the pattern appears at indexes 0 and 10. Therefore, our output should be [0, 10].
+
+Example: Consider the text: "geeks for geeks" and the pattern: "geeks". Here, the pattern appears at indexes 0 and 10. So, our output should be [0, 10].
+
+Here's the Python code to find all occurrences of a pattern within a text:
+
+
+
+
+
+txt = "geeks for geeks"
+pat = "geeks"
+​
+pos = txt.find(pat)
+​
+while pos >= 0:
+    print(pos)
+    pos = txt.find(pat, pos + 1)
+
+Output
+0
+10
+Explanation:
+
+1. Input the Text and Pattern:
+
+We ask the user to provide the text and pattern.
+Example: txt = "geeks for geeks" and pat = "geeks".
+2. Finding the Pattern:
+
+Use the find function to locate the first occurrence of the pattern in the text.
+If the pattern is not found, find returns -1.
+3. Iterating to Find All Occurrences:
+
+Initialize the pos variable with the index of the first occurrence.
+Use a while loop to continue searching as long as pos ≥= 0.
+4. Print the Current Position: Update the pos to the next occurrence by calling find again, starting from pos + 1.
+
+5. Termination Condition: The loop terminates when find returns -1, indicating no further occurrences are found.
+
