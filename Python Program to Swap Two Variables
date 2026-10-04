@@ -1,0 +1,106 @@
+Swapping two variables in Python means exchanging their values without losing any data.
+
+The value of one variable is moved to the other.
+After swapping, each variable holds the other's original value.
+Example: if "x" = 10 and "y" = 50, then after swapping, "x" = 50 and "y" = 10.
+first_number
+Using Tuple Unpacking
+Tuple unpacking is a concise and readable method to swap values. Internally, Python creates a temporary tuple to hold the values, so it does use a small amount of memory, but it is still efficient for most use cases.
+
+
+
+
+
+x, y = 10, 50
+​
+x, y = y, x  # swapping
+​
+print("x:", x)
+print("y:", y)
+
+Output
+x: 50
+y: 10
+In the above example:
+
+Initially, "x" is assigned the value 10 and "y" is assigned the value 50.
+The statement "x, y = y, x" uses Python’s multiple assignment feature to swap the values.
+No temporary variable is required for the swap.
+After execution, "x" becomes 50 and "y" becomes 10.
+Using Arithmetic Operations
+By using basic arithmetic operations, we can swap two variables without a temporary variable. This method is efficient and works well for integers. However, in some languages, it may cause overflow with very large numbers.
+
+
+
+
+
+x, y = 10, 50
+​
+x = x + y  
+y = x - y  
+x = x - y  
+​
+print("x:", x)
+print("y:", y)
+
+Output
+x: 50
+y: 10
+In the above example:
+
+Initially, "x" is 10 and "y" is 50 and the sum of "x" and "y" is stored in "x".
+The new value of "y" is calculated by subtracting the old value of "y" from the sum.
+The new value of "x" is obtained by subtracting the updated value of "y" from the sum.
+After execution, the values are swapped: "x" becomes 50 and "y" becomes 10.
+Using XOR Operator
+XOR (Exclusive OR) operator can be used to swap two variables at the bit level without requiring additional memory. This method is commonly used in low-level programming but can be harder to read and understand compared to other approaches.
+
+
+
+
+
+x, y = 10, 50
+​
+x = x ^ y  
+y = x ^ y  
+x = x ^ y  
+​
+print("x:", x)
+print("y:", y)
+
+Output
+x: 50
+y: 10
+In the above example:
+
+Initially, "x" is 10 and "y" is 50. The XOR (^) operator is used to swap the values without using a temporary variable.
+After the first operation, "x" stores the result of "x ^ y".
+The second operation retrieves the original value of "x" into "y".
+The third operation retrieves the original value of "y" into "x".
+After execution, the values are swapped: "x" becomes 50 and "y" becomes 10.
+Using Temporary Variable
+The traditional method of swapping two variables uses an additional temporary variable. While it is straightforward and easy to understand, it is not the most optimized approach as it requires extra memory allocation. This method is mainly used when clarity is more important than efficiency.
+
+
+
+
+
+x, y = 10, 50
+​
+temp = x  
+x = y  
+y = temp  
+​
+print("x:", x)
+print("y:", y)
+
+Output
+x: 50
+y: 10
+In the above example:
+
+Initially, "x" holds the value 10 and "y" holds the value 50.
+The value of "x" is stored in a temporary variable temp.
+The value of "y" is then assigned to "x".
+The value stored in temp is assigned to "y".
+After execution, the values are swapped: "x" becomes 50 and "y" becomes 10.
