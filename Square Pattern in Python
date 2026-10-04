@@ -1,0 +1,48 @@
+Printing patterns is a common exercise for learning programming concepts such as loops and conditional statements. In this article, we will discuss how to print a square pattern of stars in Python. The size of the square is determined by a predefined number, and we will use nested loops to achieve the desired output.
+
+Problem Statement
+We need to write a Python program that uses an integer n to print a square pattern of stars (*). The size of the square should be n x n.
+
+For example: If n = 3, the output should be:
+
+* * *
+* * *
+* * *
+
+If n = 4, the output should be:
+
+* * * *
+* * * *
+* * * *
+* * * *
+
+Approach
+To solve this problem, we will use nested loops:
+
+The outer loop will iterate n times, each time representing a new row.
+The inner loop will also iterate n times, printing stars in a row.
+We will use the range() function to generate the sequence of numbers for the loops. The print() function will be used with the end=' ' parameter to ensure that stars are printed on the same line separated by a space. After completing a row, a new line will be printed to start the next row.
+
+Python Implementation
+
+
+
+
+n = 3
+for i in range(n):
+    for j in range(n):
+        print('*', end=' ')
+    print()
+
+Output
+* * * 
+* * * 
+* * * 
+Step-by-Step Execution
+Initialization: We set n = 3.
+Outer Loop: The outer loop will iterate 3 times (for i = 0, 1, 2).
+Inner Loop: For each iteration of the outer loop, the inner loop will also iterate 3 times (for j = 0, 1, 2).
+On each iteration of the inner loop, a star (*) followed by a space is printed.
+New Line: After the inner loop completes, the print() function is called to move to the next line.
+This process repeats until the outer loop completes its n iterations.
+
