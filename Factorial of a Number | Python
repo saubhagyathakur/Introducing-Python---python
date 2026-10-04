@@ -1,0 +1,73 @@
+Factorial is a mathematical operation used to find the number of possible arrangements of n distinct items. It is calculated by multiplying all positive integers from 1 to n. Factorials are commonly used in permutations, combinations and counting problems.
+
+Formula of Factorial
+If there are n distinct items, the total number of arrangements is given by the factorial formula.
+
+n! = 1 × 2 × 3 ×...× n
+
+means factorial is the product of the first n natural numbers.
+
+Example: Let's calculate factorial of 5:
+
+5! = 1 × 2 × 3 × 4 × 5
+5! = 120
+
+Factorial Using Recursive Idea
+Factorial can also be written using a recursive relationship:
+
+n! = n × (n − 1)!
+
+Example: Let's calculate factorial of 4:
+
+4! = 4 × 3!
+3! = 3 × 2!
+2! = 2 × 1!
+
+So, 4! = 4 × 3 × 2 × 1 = 24
+
+Special Factorial Values
+Some factorial values are defined as base cases:
+
+1! = 1 -> Only one way to arrange a single item
+0! = 1 -> The empty arrangement is considered one valid arrangement
+These base values help factorial formulas and recursive calculations work correctly.
+
+Python Implementation
+The following Python program calculates the factorial of a number by multiplying all integers from 1 to n using a loop.
+
+
+n = int(input("Enter a number: "))
+res = 1
+
+for i in range(2, n + 1):
+    res = res * i
+
+print("Factorial of", n, "is", res)
+Output
+
+Enter a number: 5
+Factorial of 5 is 120
+
+Explanation:
+
+n = int(input(...)) takes an integer input from the user.
+res = 1 initializes the factorial value.
+for i in range(2, n + 1) iterates from 2 to n.
+res = res * i multiplies each number with the current result.
+Using Built-in Function
+Python provides a built-in function factorial() in the math module to compute factorial directly.
+
+
+import math
+n = int(input("Enter a number: "))
+res = math.factorial(n)
+print("Factorial of", n, "is", res)
+Output
+
+Enter a number: 6
+Factorial of 6 is 720
+
+Explanation:
+
+import math imports the math module.
+math.factorial(n) computes the factorial of the given number.
