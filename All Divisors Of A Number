@@ -1,0 +1,62 @@
+Divisors of a number are integers that divide the number exactly without leaving a remainder. In this article, we'll explore how to find all divisors of a given number using Python. We'll break down the problem, understand the logic, and implement the solution with clear and simple code.
+
+Problem Statement
+We need to find all divisors of a given number n. For example:
+
+For n = 12, the divisors are 1, 2, 3, 4, 6, and 12.
+For n = 13, the divisors are 1 and 13 (since 13 is a prime number).
+For n = 15, the divisors are 1, 3, 5, and 15.
+Approach
+The idea is to check each number from 1 to n and see if it divides n without leaving a remainder. If it does, then it is a divisor.
+
+Steps
+Choose a number n for which you want to find the divisors.
+Loop through all numbers from 1 to n.
+For each number, check if it divides n.
+If it divides, print the number as it is a divisor.
+Python Implementation
+1. Using a For Loop
+The for loop is a straightforward way to iterate through a range of numbers and check each one.
+
+
+
+
+
+n = 12
+for x in range(1, n + 1):
+    if n % x == 0:
+        print(x, end=' ')
+print()
+
+Output
+1 2 3 4 6 12 
+Explanation:
+
+Input: The number n is set to 12.
+Loop: The for loop iterates from 1 to n.
+Check Divisibility: The condition n % x == 0 checks if n is divisible by x. If true, x is printed as a divisor.
+Output: The divisors are printed directly.
+2. Using a While Loop
+A while loop can also be used to achieve the same result, offering an alternative way to control the loop.
+
+
+
+
+
+n = 12
+x = 1
+while x <= n:
+    if n % x == 0:
+        print(x, end=' ')
+    x += 1
+print()
+
+Output
+1 2 3 4 6 12 
+Explanation:
+
+Initialization: The variable x is initialized to 1.
+Loop: The while loop runs as long as x is less than or equal to n.
+Check Divisibility: The condition n % x == 0 checks if n is divisible by x. If true, x is printed as a divisor.
+Increment: The variable x is incremented by 1 in each iteration.
+Output: The divisors are printed directly.
