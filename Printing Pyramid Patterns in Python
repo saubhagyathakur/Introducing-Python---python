@@ -1,0 +1,256 @@
+Pyramid patterns are sequences of characters or numbers arranged in a way that resembles a pyramid. Each level has more elements than the level above. These patterns are great for practicing loops and control structures in Python.
+
+Full Pyramid Patterns in Python
+A full pyramid pattern is a series of lines that form a symmetric pyramid. Each line has a specific number of characters, increasing as you go down.
+
+Example 1: Full Pyramid Patterns Using Loop
+
+
+
+
+
+def full_pyramid(n):
+    for i in range(1, n + 1):
+        for j in range(n - i):
+            print(" ", end="")
+        
+        for k in range(1, 2*i):
+            print("*", end="")
+        print()
+   
+full_pyramid(5)
+
+Output
+    *
+   ***
+  *****
+ *******
+*********
+Explanation: The outer loop controls the rows, while the inner loops handle the spaces and stars. Each row has spaces to align the stars symmetrically, forming a pyramid.
+
+Example 2: Pyramid Patterns with Alphabets
+
+
+
+
+
+print("GFG")
+n = 5
+alph = 65
+for i in range(0, n):
+    print(" " * (n-i), end=" ")
+    for j in range(0, i+1):
+        print(chr(alph), end=" ")
+        alph += 1
+    alph = 65
+    print()
+
+Output
+GFG
+      A 
+     A B 
+    A B C 
+   A B C D 
+  A B C D E 
+Example 3: Pyramid Patterns with Numbers
+
+
+
+
+
+def print_number_pyramid(rows):
+    for i in range(1, rows + 1):
+        for j in range(rows - i):
+            print(" ", end="")
+        for j in range(2 * i - 1):
+            print(j + 1, end="")
+        print()
+​
+print_number_pyramid(5)
+
+Output
+    1
+   123
+  12345
+ 1234567
+123456789
+Example 4: Inverted Full Pyramid
+
+
+
+
+
+def inverted_full_pyramid(n):
+    for i in range(n, 0, -1):
+        for j in range(n - i):
+            print(" ", end="")
+        for k in range(2*i - 1):
+            print("*", end="")
+        print("")
+​
+inverted_full_pyramid(5)
+
+Output
+*********
+ *******
+  *****
+   ***
+    *
+Example 5: Hollow Pyramid
+
+
+
+
+
+print("GFG")
+def hollow_pyramid(n):
+    for i in range(1, n + 1):
+        for j in range(1, 2 * n):
+            if j == n - i + 1 or j == n + i - 1 or i == n:
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print()
+​
+hollow_pyramid(5)
+
+Output
+GFG
+    *    
+   * *   
+  *   *  
+ *     * 
+*********
+Half Pyramid Patterns in Python
+A half pyramid starts with one element in the first row and adds one more in each subsequent row.
+
+Example 1: Half Pyramid Using Loops
+
+
+
+
+
+def half_pyramid(n):
+    for i in range(1, n + 1):
+        for j in range(1, i + 1):
+            print("* ", end="")
+        print("")
+​
+half_pyramid(5)
+
+Output
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+Example 2: Half Pyramid Using Recursion
+
+
+
+
+
+def print_half_pyramid(n):
+    if n > 0:
+        print_half_pyramid(n - 1)
+        print('*' * n)
+​
+print_half_pyramid(5)
+
+Output
+*
+**
+***
+****
+*****
+Explanation: The recursive function print_half_pyramid() prints one row at a time starting from the top, moving down by calling itself with a smaller number of rows.
+
+Example 3: Half Pyramid with Numbers
+
+
+
+
+
+def numpat(n):
+    for i in range(0, n):
+        num = 1
+        for j in range(0, i+1):
+            print(num, end=" ")
+            num += 1
+        print("")
+​
+numpat(5)
+
+Output
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+Example 4: Half Pyramid with Alphabets
+
+
+
+
+
+def alphapat(n):
+    num = 65
+    for i in range(0, n):
+        for j in range(0, i+1):
+            print(chr(num), end=" ")
+        num += 1
+        print("\r")
+​
+alphapat(5)
+
+Output
+A 
+B B 
+C C C 
+D D D D 
+E E E E E 
+Example 5: Inverted Half Pyramid
+
+
+
+
+
+def inverted_half_pyramid(n):
+    for i in range(n, 0, -1):
+        for j in range(1, i + 1):
+            print("* ", end="")
+        print("\r")
+​
+inverted_half_pyramid(5)
+
+Output
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+Example 6: Hollow Inverted Half Pyramid
+
+
+
+
+
+def def1(rows):
+    for i in range(rows, 0, -1):
+        for j in range(rows - i):
+            print(" ", end="")
+        for j in range(i):
+            if j == 0 or j == i - 1 or i == rows:
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print()
+​
+def1(5)
+
+Output
+*****
+ *  *
+  * *
+   **
+    *
