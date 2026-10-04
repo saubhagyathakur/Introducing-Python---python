@@ -1,0 +1,49 @@
+A prime number is a number that has only two divisors: 1 and the number itself. In Python, checking whether a number is prime involves verifying that no number other than 1 and itself divides it. For example: 2, 3, 5, 7, 11, 13, 19, etc.
+
+Understanding Prime Numbers
+Let's understand the idea with a simple puzzle. Suppose we are given a height of 91 and we need to build this height using blocks of equal size. Conditions:
+
+All blocks must have the same height
+The block height must be greater than 1 and less than 91
+We cannot use blocks of height 1 or a single block of height 91
+Now the question is: Can we build the height 91 using equal-sized blocks? Yes, we can.
+
+For example: 7 blocks, each of height 13 -> 13 × 7 = 91. Since 91 can be divided into equal blocks between 1 and 91, it means 91 has divisors other than 1 and itself. So, 91 is not a prime number.
+
+Note: The number 1 is neither prime nor composite because it has only one divisor (1 itself), while prime numbers require exactly two divisors.
+
+Approach to Check Prime Number
+The idea to check whether a number is prime is:
+
+Take a number n as input.
+If n ≤ 1, it cannot be a prime number.
+Check divisibility of n by numbers from 2 to n − 1.
+If any number divides n, the number is not prime.
+If no number divides n, then the number is prime.
+Python Implementation
+The following program takes a number from the user and checks whether it is a prime number. It checks divisibility from 2 to n−1, and if a divisor is found, the program immediately stops and prints No. If no divisor is found, the number is prime.
+
+
+n = int(input("Enter a number: "))
+
+if n <= 1:
+    print("No")
+else:
+    for i in range(2, n):
+        if n % i == 0:
+            print("No")
+            break
+    else:
+        print("Yes")
+Output
+
+Enter a number: 101
+Yes
+
+Explanation:
+
+if n <= 1: checks if the number is less than or equal to 1, since prime numbers start from 2.
+for i in range(2, n): runs a loop from 2 to n−1 to check possible divisors of the number.
+if n % i == 0: uses modulus operator % to check if the number is divisible by i. If the remainder is 0, it means number has another divisor.
+break stops the loop immediately after finding a divisor.
+else: executes only if the loop completes without encountering a break.
