@@ -1,0 +1,66 @@
+In this article, we will learn how to calculate the Least Common Multiple (LCM) of two numbers using Python. We will explore a simple method and an efficient approach using Python's built-in functions.
+
+Example Puzzle
+Imagine you have two blocks:
+
+Block A has a height of 6.
+Block B has a height of 9.
+Your task is to build two towers of the same height using these blocks:
+
+Tower A uses only Block A.
+Tower B uses only Block B.
+With an infinite supply of both blocks, find the smallest height at which both towers can be equal.
+
+Understanding LCM
+The LCM of two numbers is the smallest number that is a multiple of both. For example:
+
+The LCM of 6 and 9 is 18.
+The LCM of 4 and 6 is 12.
+The LCM of 3 and 7 is 21.
+Simple Approach to Compute LCM
+To find the LCM of two numbers, follow these steps:
+
+Find the maximum of the two numbers.
+Check if this maximum number is divisible by both numbers.
+If not, increment the number and repeat the check until you find a number divisible by both.
+Python Implementation:
+
+
+
+
+a = 6
+b = 9
+result = max(a, b)
+while True:
+    if result % a == 0 and result % b == 0:
+        break
+    result += max(a, b)
+print(result)
+
+Output
+18
+Explanation:
+Input: The numbers a and b are set to 6 and 9 respectively.
+Find Maximum: The max function determines the larger of the two numbers.
+Loop: A while loop checks each number starting from the maximum to find the smallest number divisible by both a and b.
+Output: The LCM is printed once found.
+Efficient Approach: Using GCD
+A more efficient way to calculate the LCM is by using the Greatest Common Divisor (GCD). The relationship between LCM and GCD is:
+
+LCM (a, b) = |a * b| / GCD(a, b)
+
+Python Implementation:
+
+
+
+
+import math
+​
+a = 6
+b = 9
+gcd = math.gcd(a, b)
+lcm = (a * b) // gcd
+print(lcm)
+
+Output
+18
