@@ -1,0 +1,119 @@
+Given a number n, return the count of digits in this number.
+
+Example:
+
+Input: n = 1567
+Output: 4
+Explanation: There are 4 digits in 1567, which are 1, 5, 6 and 7.
+
+Input: n = 255
+Output: 3
+Explanation: There are 3 digits in 255, which are 2, 5 and 5.
+
+Table of Content
+
+Iterative Solution O(log10(n)) Time or O(Number of digits) and O(1) Space
+Using Recursion - O(log10(n)) or O(Number of digits) Time and O(Number of digits) Space
+Using log base 10 function - O(1) Time and O(1) Space
+Converting Number to String - O(Number of digits) Time and O(Number of digits) Space
+
+
+Count-Digits-Flow-Chart-1-2
+Iterative Solution O(log10(n)) Time or O(Number of digits) and O(1) Space
+The idea is to count the digits by removing the digits from the input number starting from right(least significant digit) to left(most significant digit) till the number is reduced to 0. We are removing digits from the right because the rightmost digit can be removed simply by performing integer division by 10. For eg: n = 1567, then 1567 / 10 = 156.7 = 156(Integer Division).
+
+
+
+
+
+def countDigit(n):
+​
+    # Base case
+    if n == 0:
+        return 1
+​
+    count = 0
+​
+    # Iterate till n has digits remaining
+    while n != 0:
+​
+        # Remove rightmost digit
+        n = n // 10
+​
+        # Increment digit count by 1
+        count += 1
+​
+    return count
+​
+​
+if __name__ == "__main__":
+    n = 58964
+    print(countDigit(n))
+
+Output
+5
+Using Recursion - O(log10(n)) or O(Number of digits) Time and O(Number of digits) Space
+The idea is to remove digits from right by calling a recursive function for each digit. The base condition of this recursive approach is when we divide the number by 10 and the number gets reduced to 0, so return 1 for this operation. Otherwise, Keep dividing the number by 10 this reduces the input number size by 1 and keeps track of the number of sizes reduced.
+
+
+
+
+
+def countDigit(n):
+    # Base case: if 'n' is a single-digit number
+    if n // 10 == 0:
+        return 1
+    # Recursive case: strip one digit and count
+    return 1 + countDigit(n // 10)
+​
+if __name__ == "__main__":
+    n = 58964
+    print(countDigit(n))
+
+Output
+5
+Using log base 10 function - O(1) Time and O(1) Space
+We can use log10(logarithm of base 10) to count the number of digits of positive numbers (logarithm is not defined for negative numbers). For negative numbers, first take the absolute value of n, since logarithm is not defined for negative values.
+Digit count of n = floor(log10(n) + 1) 
+
+
+
+
+
+import math
+​
+def countDigit(n):
+    # Handle zero separately
+    if n == 0: return 1
+​
+    # Convert negative to positive
+    n = abs(n)
+​
+    return math.floor(math.log10(n)) + 1
+​
+if __name__ == "__main__":
+    n = -58964
+    print(countDigit(n))
+Converting Number to String - O(Number of digits) Time and O(Number of digits) Space
+We can convert the number into a string and then find the length of the string to get the number of digits in the original number. If the number is negative, the string will contain a '-' sign, so subtract 1 from the length.
+
+
+
+
+
+def countDigit(n):
+    # Convert integer to string
+    num = str(n)
+​
+    # If negative, exclude '-' sign
+    if num[0] == '-':
+        return len(num) - 1
+​
+    return len(num)
+​
+if __name__ == '__main__':
+    n = -58964
+    print(countDigit(n))
+
+Output
+5
