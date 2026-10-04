@@ -1,0 +1,57 @@
+In this article, we will learn how to calculate the sum of the first n natural numbers using Python. This method is useful for quickly determining cumulative sums without manually adding each number. Let's start by understanding the problem and then solve it with a Python program.
+
+Problem Statement
+Imagine a person saves 1 rupee on day 1, 2 rupees on day 2, 3 rupees on day 3, and so on. We need to find out how much money this person saves after 10 days.
+
+Step-by-Step Solution
+1. Identify the Series: The savings form a sequence: (1, 2, 3, 4, ..., 10).
+
+2. Sum of the Series: To find the sum of the first 10 natural numbers, we can use a direct mathematical formula instead of summing each number manually.
+
+The formula for the sum of the first n natural numbers is:
+
+Sn = n(n + 1)/2
+
+For n = 10:
+
+S10 = 10(10 + 1)/2 = 10 × 11 / 2 = 55
+
+Python Program
+Here’s how we can write a Python program to calculate the sum of the first n natural numbers:
+
+
+
+
+
+# Input the value of n
+n = 10
+​
+# Calculate the sum using the formula
+sum_n = n * (n + 1) // 2
+​
+# Print the result
+print("The sum of the first", n, "natural numbers is:", sum_n)
+
+Output
+The sum of the first 10 natural numbers is: 55
+Understanding the Formula
+Let’s understand how the formula for the sum of the first n natural numbers works. The sum of the first n natural numbers can be written as:
+
+Sn = 1 + 2 + 3 + ... + n
+
+If we reverse the series and add it to the original series, we get:
+
+Sn = n + (n-1) + (n-2) + ... + 1
+
+Adding these two series term by term:
+
+2Sn = (1+n) + (2+n-1) + (3+n-2) + ... + (n+1)
+
+Each term in the sum is (n + 1) and there are n such terms:
+
+2Sn = n(n + 1)
+
+Dividing both sides by 2, we get:
+
+Sn = n(n + 1)/2
+
