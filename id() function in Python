@@ -1,0 +1,127 @@
+The id() function is used to get the unique identity number of an object in memory. This identity remains the same as long as the object exists. If two variables have the same id(), it means they are pointing to the same object in memory.
+
+Syntax
+id(object)
+
+Parameter: object - The variable or value whose memory identity you want to get.
+Return Value: Returns a unique integer representing the object’s identity.
+
+
+
+
+x = 10
+y = x
+print(id(x))
+print(id(y))
+
+Output
+139745147511024
+139745147511024
+Note: id() values may differ across Python environments and runs.
+
+In the above example:
+
+"x" and "y" refer to the same value 10, so Python stores them as one object.
+Because both variables point to the same object, id(x) and id(y) are the same.
+Shows two variables can point to the same object and therefore have the same memory identity
+Examples
+Example 1: This example compares two different list objects to show that even with similar values, their memory identity is different.
+
+
+
+
+
+x = [1, 2]
+y = [1, 2]
+​
+print(id(x))
+print(id(y))
+
+Output
+128102271441856
+128102273731776
+In the above example:
+
+Lists are mutable, so Python creates separate objects.
+"x" and "y" store the same values but have different id() values.
+Example 2: This example uses a custom class to show that each object has its own unique identity.
+
+
+
+
+
+class A:
+    pass
+​
+p = A()
+q = A()
+​
+print(id(p))
+print(id(q))
+
+Output
+126157094693120
+126157093473488
+In the above example:
+
+"p" and "q" are two different objects created from class A.
+Each object is stored separately in memory, so id(p) and id(q) are different.
+Example 3: This example checks whether two strings with the same text refer to the same object in memory.
+
+
+
+
+
+s1 = "python"
+s2 = "python"
+​
+print(id(s1))
+print(id(s2))
+
+Output
+139546861085408
+139546861085408
+In the above example:
+
+Strings are immutable, so Python may reuse them.
+Since both "s1" and "s2" contain the same text, id(s1) and id(s2) are the same.
+Example 4: This example shows how tuple objects with the same values may or may not share memory.
+
+
+
+
+
+t1 = (1, 2, 3)
+t2 = (1, 2, 3)
+​
+print(id(t1))
+print(id(t2))
+
+Output
+130201030380352
+130201030380352
+In the above example:
+
+Tuples are immutable, so Python may reuse their memory.
+Here, "t1" and "t2" point to the same object, so their id() values are equal.
+Checking Object Identity Using is
+The is keyword in Python is used to check whether two variables point to the same object in memory.
+
+
+
+
+
+x = 10
+y = x
+​
+print(x is y)         
+print(id(x) == id(y))
+
+Output
+True
+True
+Explanation:
+
+x is y returns True if both variables refer to the same memory location.
+This is exactly what id(x) == id(y) checks.
+Using 'is' is more readable and is the preferred way to check object identity.
