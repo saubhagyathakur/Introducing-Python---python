@@ -1,0 +1,211 @@
+Strings are one of the most commonly used data types in programming. In Java, a String represents a sequence of characters and provides many built-in methods to manipulate and process text data efficiently.
+
+Strings in Java are immutable, meaning their values cannot be changed after creation.
+The String class provides many built-in methods to perform common operations on text data.
+Some Common String Operation
+Let’s discuss some common String operations in Java along with their implementation.
+
+Accessing characters by index in a string.
+To access any character in a String, we need:
+
+A non-empty string (say "s")
+A position/index of the character from where it is to be accessed. (say "k")
+Using this Approch the character can be easily accessed using the below syntax:
+
+char ch = s.charAt(k);
+Below is the implementation of the above approach:
+
+
+
+
+
+# Function to access an element by index
+def access_char_by_index(s, k):
+  
+    # Return the character at the kth index in the string s
+    return s[k]
+​
+# Driver code
+if __name__ == "__main__":
+    s = "GeeksforGeeks "
+    k = 4
+    print(access_char_by_index(s, k))
+Inserting Character/String into an String.
+To insert any Character/String in a String, we need:
+
+A character/string that is to be inserted in the string (say "ch")
+A position/index of the Character/String where it is to be inserted. (say "k")
+Below is the implementation of the above approach:
+
+
+
+
+
+# Python program for the above approach
+​
+# Function to demonstrate insert
+def insert_demo(s, ch, k):
+​
+    # Inserts ch at kth index of s
+    modified_string = s[:k] + ch + s[k:]
+    print("Modified String:", modified_string)
+​
+# Driver code
+if __name__ == "__main__":
+    s = "GeeksGeeks "
+    ch_to_insert = "for"
+    index_to_insert = 5
+​
+    print("Original String:", s)
+    insert_demo(s, ch_to_insert, index_to_insert)
+
+Output
+Original String : GeeksGeeks 
+Modified String : GeeksforGeeks 
+Modifying character in String
+To modify any Character in a String, we need:
+
+A character that is to replaced in the string (say "ch")
+A position/index of the Character where it is to be replaced at. (say "k")
+Below is the implementation of the above approach:
+
+
+
+
+
+# Function to replace a character at a specific index in a string
+def replace_ch(s, index, ch):
+​
+    # Convert string to list of characters to allow modification
+    lst = list(s)
+​
+    # Replace character at the specified index
+    lst[index] = ch
+​
+    # Convert back to string and return
+    return ''.join(lst)
+​
+​
+​
+# Entry point of the program
+if __name__ == "__main__":
+  
+    # Original string
+    s = "Geeks Gor Geeks"
+​
+    # Index to replace character
+    index = 6
+​
+    # New character
+    ch = 'F'
+​
+    # Print original string
+    print("Original String =", s)
+​
+    # Replace character at the specified index
+    s = replace_ch(s, index, ch)
+​
+    # Print modified string
+    print("Modified String =", s)
+
+Output
+Original String = Geeks Gor Geeks
+Modified String = Geeks For Geeks
+Deletion of character in String
+To delete any Character in a String, we need:
+
+A character that is to deleted in the string (say "ch")
+Below is the implementation of the above approach:
+
+
+
+
+
+def removeChar(s, c):
+  
+    # Use list comprehension to filter 
+    # out the target character
+    return ''.join([ch for ch in s if ch != c])
+​
+if __name__ == "__main__":
+    s = "geeksforgeeks"
+    s = removeChar(s, 'g')
+    print(s)
+
+Output
+eeksforeeks
+Concatenating strings (combining multiple strings into one).
+To concatenate any String to a String, we need:
+
+A string that is to appended with the string (say "ch")
+Below is the implementation of the above approach:
+
+
+
+
+
+def main():
+    init = "this is init"
+    add = " added now"
+​
+    # Concatenate strings
+    result = init + add
+​
+    # Print the result
+    print(result)
+​
+# Call the main function
+if __name__ == "__main__":
+    main()
+
+Output
+this is init added now
+Finding the length/size of a string
+To find the length of the String, we need:
+
+A string for which the length/size is to be determined (say "str")
+Below is the implementation of the above approach:
+
+
+
+
+
+# Main function
+def main():
+    # String object
+    str = "GeeksforGeeks"
+​
+    # Size of string object using len() function
+    print(len(str))
+​
+​
+# Calling the main function
+if __name__ == "__main__":
+    main()
+
+Output
+13
+Comparing Strings for Equality
+String comparison is used to check if two strings are equal or to determine their lexicographic order.
+
+Equal: Both strings have exactly the same characters.
+Not Equal: Strings differ in one or more characters.
+Lexicographic Order: Determines which string comes first in dictionary order.
+
+
+
+
+def compare_strings(s1, s2):
+    # comparing both using inbuilt comparison
+    if s1 != s2:
+        print("s1 is not equal to s2")
+        if s1 > s2:
+            print("s1 is greater than s2")
+        else:
+            print("s2 is greater than s1")
+    else:
+        print("s1 is equal to s2")
+​
+# Driver code
+compare_strings("geeks", "forGeeks")
+compare_strings("geeks", "geeks")
