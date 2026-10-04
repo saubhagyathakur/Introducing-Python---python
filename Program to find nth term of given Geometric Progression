@@ -1,0 +1,97 @@
+Given three integers the first term a, common ratio r, and position n, find the n-th term of a geometric progression.
+Note: Since the result can be large, return the answer modulo 109 + 7.
+
+Examples:
+
+ Input:  a = 2, r = 2, n = 4 
+ Output: 16 
+ Explanation:  The GP series is 2, 4, 8, 16, ... The 4th term is 16. 
+
+ Input: a = 4, r = 3, n=3 
+ Output: 36
+ Explanation: The GP series is 4, 12, 36, 108,.. in which 36 is the 3rd term. 
+
+Approach 1: Using a Loop (Naive)
+The n-th term can be computed manually by repeatedly multiplying the first term by the common ratio r, a total of n − 1 times.
+
+
+
+
+
+#include <iostream>
+using namespace std;
+​
+// Modulo value to prevent overflow
+const int M = 1000000007;
+​
+int nthTerm(int a, int r, int n)
+{
+    int res = a;
+​
+    // Multiply by common ratio (n - 1) 
+    // times: a * r^(n-1)
+    for (int i = 1; i < n; i++) {
+        res = (1ll * res * r) % M;
+    }
+​
+    return res;
+}
+​
+int main()
+{
+    int a = 2, r = 2, n = 4;
+​
+    cout << nthTerm(a, r, n) << endl;
+​
+    return 0;
+}
+
+Output
+16
+Approach 2: Using Binary Exponentiation (Efficient)
+The n-th term of a geometric progression, Tn = a × r^(n−1), can be found by raising the common ratio to the power (n−1). Instead of multiplying repeatedly, binary exponentiation smartly breaks the power into smaller parts using squaring, making the process much faster and efficient.
+
+
+
+
+
+#include <iostream>
+using namespace std;
+​
+// Modulo value
+const int M = 1000000007;
+​
+// Function to compute (x^n) % M using binary exponentiation
+long long powMod(long long x, int n) {
+    long long result = 1;
+    x %= M;
+​
+    while (n > 0) {
+        if (n % 2 == 1)
+            result = (result * x) % M;
+​
+        x = (x * x) % M;
+        n /= 2;
+    }
+    return result;
+}
+​
+// Function to compute the n-th term of 
+// the geometric progression
+​
+int nthTerm(int a, int r, int n) {
+    int power = powMod(r, n - 1);
+    return (1LL * a * power) % M;
+}
+​
+// Driver Code
+int main() {
+    int a = 2, r = 2, n = 4;
+​
+    cout << nthTerm(a, r, n) << endl;
+​
+    return 0;
+}
+
+Output
+16
