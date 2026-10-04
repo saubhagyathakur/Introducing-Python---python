@@ -1,0 +1,120 @@
+Binary and decimal are two different number systems. Decimal uses base 10 (0–9), while binary uses base 2 (0 and 1).
+
+Example: 
+
+From decimal to binary
+Input : 8
+Output : 1 0 0 0
+
+From binary to decimal
+Input : 100
+Output : 4
+
+Let's explore ways to convert between binary and decimal in Python.
+
+Decimal to binary  
+Using loop
+This method divides the number by 2 in a loop and stores the remainders (in reverse order) to form the binary number.
+
+
+
+
+
+for num in [8, 18]:
+    n = num
+    b = ""
+    while n > 0:
+        b = str(n % 2) + b
+        n //= 2
+    print(b)
+
+Output
+1000
+10010
+Explanation:
+
+It goes through numbers 8 and 18 one by one.
+For each number, it keeps dividing by 2 and adds the remainder to form the binary.
+Using built-in function - bin()
+bin() is a built in Python function that converts a decimal number directly to its binary string.
+
+
+
+
+
+n = 8
+print(bin(n).replace("0b", ""))
+n = 18
+print(bin(n).replace("0b", ""))
+
+Output
+1000
+10010
+Explanation:
+
+bin(n) converts a decimal number to a binary string, but the result has a prefix "0b" (e.g., 0b1000).
+.replace("0b", "") removes the "0b" prefix by replacing it with an empty string, giving a clean binary representation.
+Note: Alternatively, slicing bin(n)[2:] can also remove "0b".
+
+Using Format Specifier
+format() function in Python is a built-in method that allows you to convert numbers into different formats, including binary.
+
+
+
+
+
+n = 4
+print('{0:b}'.format(n))  
+​
+b = format(n, 'b')
+print(b)
+
+Output
+100
+100
+Explanation:
+
+'{0:b}'.format(n) converts the number n to binary using string formatting.
+format(n, 'b') does the same using the format() function directly.
+Note: format() converts decimal to binary, but not binary to decimal. Use int(binary, 2) for that.
+
+Binary to decimal 
+Using Positional method
+This method converts binary to decimal by multiplying each binary digit by 2^position, starting from the right, and adding the results to get the decimal number.
+
+
+
+
+
+def binaryToDecimal(b):
+    d, p = 0, 0
+    while b:
+        d += (b % 10) * (2 ** p)
+        b //= 10
+        p += 1
+    print(d)
+​
+for num in [100, 101]:
+    binaryToDecimal(num)
+
+Output
+4
+5
+Explanation:
+
+Converts binary (as integer) to decimal using digit × 2^position.
+while loop extracts digits right to left and adds their weighted value.
+Runs for 100 and 101 printing decimal results.
+Using Built-in function - int()
+int() function can directly convert a binary string to a decimal number by passing the string and base 2.
+
+
+
+
+
+for b in ['100', '101']:
+    print(int(b, 2))
+
+Output
+4
+5
