@@ -1,0 +1,90 @@
+Python provides various methods for handling special characters within strings. Two key concepts in this regard are escape sequences and raw strings. This article will explore these concepts using simple explanations and examples.
+
+Escape Sequences
+Escape sequences allow us to include special characters in strings that would otherwise be difficult or impossible to represent. They start with a backslash (\), followed by a character or sequence that specifies the escape behavior.
+
+Common Escape Sequences
+Single Quote (\'):
+When you want to include a single quote inside a string that is enclosed by single quotes, you need to escape it.
+
+Example:
+
+
+
+
+s = 'welcome to geek\'s course'
+print(s)
+
+Output
+welcome to geek's course
+New Line (\n):
+The \n escape sequence adds a new line.
+
+Example:
+
+
+
+
+s = 'hi\nwelcome to the course'
+print(s)
+
+Output
+hi
+welcome to the course
+Tab (\t):
+The \t escape sequence adds a tab space.
+
+Example:
+
+
+
+
+s = 'hi\twelcome to the course'
+print(s)
+
+Output
+hi	welcome to the course
+Double Quote (\"):
+To include a double quote inside a string that is enclosed by double quotes, you need to escape it.
+
+Example:
+
+
+
+
+s = "He said, \"Welcome to the course!\""
+print(s)
+
+Output
+He said, "Welcome to the course!"
+Backslash (\):
+To include a backslash itself, you need to escape it by using double backslashes.
+
+Example:
+
+
+
+
+s = 'This is a backslash: \\'
+print(s)
+
+Output
+This is a backslash: \
+Raw Strings
+Raw strings are a special type of string in Python where escape sequences are not processed. They are useful when dealing with strings that contain many backslashes, such as file paths.
+
+Creating Raw Strings
+Raw strings are created by prefixing the string with r or R. This tells Python to treat backslashes as literal characters, not as escape characters.
+
+Example:
+
+
+
+
+s1 = r'C:\project\name.py'
+print(s1)
+
+Output
+C:\project\name.py
+In this example, the \ in the file path is not treated as an escape sequence but as a literal backslash, preserving the path format.
+
